@@ -22,7 +22,7 @@ function AdminRoom() {
   const { title, questions } = useRoom(roomId);
 
   async function handleDeleteQuestion(questionId: string) {
-    if(window.confirm('Tem certeza que você deseja excluri esta pergunta?')) {
+    if(window.confirm('Tem certeza que você deseja excluir esta pergunta?')) {
       await database.ref(`rooms/${roomId}/questions/${questionId}`).remove();
     }
   }
