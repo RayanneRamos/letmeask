@@ -1,7 +1,6 @@
 import { FormEvent, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import logoImage from '../../assets/images/logo.svg';
-import avatarImage from '../../assets/teste/avatar.jpg';
 import { Button } from '../../components/Button';
 import { Question } from '../../components/Question';
 import { RoomCode } from '../../components/RoomCode';
@@ -80,8 +79,8 @@ function Room() {
           <div className='form-footer'>
             { user ? (
               <div className='user-info'>
-                <img src={avatarImage}  alt='avatar' />
-                <span>Pedro Lemos</span>
+                <img src={user.avatar}  alt={user.name} />
+                <span>{user.name}</span>
               </div>
             ) : (
               <span>Para enviar uma pergunta, <button>faça seu login</button></span>
