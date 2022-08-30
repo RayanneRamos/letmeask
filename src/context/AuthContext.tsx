@@ -1,4 +1,4 @@
-import firebase from "firebase/compat";
+import firebase from "firebase/compat/app";
 import { createContext, ReactNode, useEffect, useState } from "react";
 import { auth } from "../services/firebase";
 
