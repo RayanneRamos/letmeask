@@ -12,6 +12,14 @@
     justify-content: center;
     padding: 120px 80px;
 
+    @media screen and (max-width: 425px) {
+      display: none;
+    }
+
+    @media screen and (max-width: 770px) {
+      padding: 60px 44px;
+    }
+
     img {
       max-width: 320px;
     }
