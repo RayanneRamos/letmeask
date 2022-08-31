@@ -3,6 +3,32 @@
   align-items: stretch;
   height: 100vh;
 
+  &.dark {
+    background: #1c1e1f;
+
+    aside {
+      background: #270295;
+    }
+
+    .main-content {
+      form {
+        input {
+          background: #181a1b;
+          border-color: #424242;
+          color: #fff;
+        }
+      }
+
+      p {
+        color: #fff;
+      }
+
+      h2 {
+        color: #fff;
+      }
+    }
+  }
+
   aside {
     flex: 7;
     background: #835afd;
@@ -54,8 +80,21 @@
     align-items: stretch;
     text-align: center;
 
+    .toggle {
+      margin-bottom: 20px;
+    }
+
     > img {
       align-items: center;
+    }
+
+    .info-user {
+      img {
+        width: 80px;
+        height: 80px;
+        margin-top: 25px;
+        border-radius: 50%;
+      }
     }
 
     h2 {
