@@ -2,14 +2,21 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import './services/firebase';
 import './styles/global.scss';
+import { AuthContextProvider } from './context/AuthContext';
+import { ThemeContextProvider } from './context/ThemeContext';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <App />
+    <ThemeContextProvider>
+      <AuthContextProvider>
+        <App />
+      </AuthContextProvider>
+    </ThemeContextProvider>
   </React.StrictMode>
 );
 
