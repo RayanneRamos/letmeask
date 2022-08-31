@@ -1,4 +1,37 @@
 #page-room {
+  min-height: 100vh;
+
+  &.dark {
+    background: #1c1e1f;
+
+    header {
+      border-bottom: 1px solid #4d4d4d;
+    }
+
+    main {
+      .room-title {
+        h1 {
+          color: #cacaca;
+        }
+      }
+
+      form {
+        textarea {
+          background: #191b1c;
+          color: #cacaca;
+        }
+
+        .form-footer {
+          .user-info {
+            span, p {
+              color: #a1a1a1;
+            }
+          }
+        }
+      }
+    }
+  }
+
   header {
     padding: 24px;
     border-bottom: 1px solid #e2e2e2;
@@ -129,11 +162,23 @@
             border-radius: 50%;
           }
 
-          span {
+          span, p {
             margin-left: 8px;
             color: #29292e;
             font-weight: 500;
             font-size: 14px;
+          }
+
+          .logout {
+            display: flex;
+            flex-direction: column;
+
+            span {
+              color: red;
+              font-size: 14px;
+              font-weight: normal;
+              cursor: pointer;
+            }
           }
         }
 
