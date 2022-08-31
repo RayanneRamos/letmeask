@@ -1,12 +1,15 @@
 import { FormEvent, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import logoImage from '../../assets/images/logo.svg';
+import logoDarkImage from '../../assets/images/logo-dark.svg';
 import { Button } from '../../components/Button';
 import { Question } from '../../components/Question';
 import { RoomCode } from '../../components/RoomCode';
+import { Toggle } from '../../components/Toggle';
 import { useAuth } from '../../hooks/useAuth';
 import { database } from '../../services/firebase';
 import { useRoom } from '../../hooks/useRoom';
+import { useTheme } from '../../hooks/useTheme';
 import '../../styles/room.scss';
 import '../../components/Question/styles.scss';
 
@@ -20,6 +23,7 @@ function Room() {
   const [ newQuestion, setNewQuestion ] = useState('');
   const { user } = useAuth();
   const { title, questions } = useRoom(roomId);
+  const { theme } = useTheme();
 
   async function handleSendQuestion(event: FormEvent) {
     event.preventDefault();
@@ -58,11 +62,12 @@ function Room() {
   }
 
   return (
-    <div id='page-room'>
+    <div id='page-room' className={theme}>
       <header>
         <div className='content'>
-          <img src={logoImage} alt='Letmeask' />
+          <img src={theme === 'light' ? logoImage : logoDarkImage} alt='Letmeask' />
           <RoomCode code={roomId} />
+          <Toggle />
         </div>
       </header>
       <main>

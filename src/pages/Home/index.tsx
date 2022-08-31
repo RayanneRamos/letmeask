@@ -3,8 +3,11 @@ import { useNavigate } from 'react-router-dom';
 import illustrationImage from '../../assets/images/illustration.svg';
 import logoImage from '../../assets/images/logo.svg';
 import googleIconImage from '../../assets/images/google-icon.svg';
+import logoDarkImage from '../../assets/images/logo-dark.svg';
 import { Button } from '../../components/Button';
+import { Toggle } from '../../components/Toggle';
 import { useAuth } from '../../hooks/useAuth';
+import { useTheme } from '../../hooks/useTheme';
 import { database } from '../../services/firebase';
 import '../../styles/auth.scss';
 
@@ -12,6 +15,7 @@ function Home() {
   const navigate = useNavigate();
   const { user, signInWithGoogle } = useAuth();
   const [ roomCode, setRoomCode ] = useState('');
+  const { theme } = useTheme();
 
   async function handleCreateRoom() {
     if(!user) {
@@ -44,7 +48,7 @@ function Home() {
   }
 
   return (
-    <div id='page-auth'>
+    <div id='page-auth' className={theme}>
       <aside>
         <img src={illustrationImage} alt='Ilustração simbolizando perguntas e respostas' />
         <strong>Crie salas de Q&amp;A ao-vivo</strong>
@@ -52,7 +56,10 @@ function Home() {
       </aside>
       <main>
         <div className='main-content'>
-          <img src={logoImage} alt='Letmeask' />
+          <div className='toggle'>
+            <Toggle />
+          </div>
+          <img src={theme === 'light' ? logoImage : logoDarkImage} alt='Letmeask' />
           <button className='create-room' onClick={handleCreateRoom}>
             <img src={googleIconImage} alt='Logo do Google' />
             Crie sua sala com o Google

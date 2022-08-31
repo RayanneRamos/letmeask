@@ -3,10 +3,13 @@ import logoImage from '../../assets/images/logo.svg';
 import deleteImage from '../../assets/images/delete.svg';
 import checkImage from '../../assets/images/check.svg';
 import answerImage from '../../assets/images/answer.svg';
+import logoDarkImage from '../../assets/images/logo-dark.svg';
 import { Button } from '../../components/Button';
 import { Question } from '../../components/Question';
 import { RoomCode } from '../../components/RoomCode';
+import { Toggle } from '../../components/Toggle';
 import { useRoom } from '../../hooks/useRoom';
+import { useTheme } from '../../hooks/useTheme';
 import { database } from '../../services/firebase';
 import '../../styles/room.scss';
 import '../../components/Question/styles.scss';
@@ -20,6 +23,7 @@ function AdminRoom() {
   const params = useParams<RoomParams>();
   const roomId = params.id as string;
   const { title, questions } = useRoom(roomId);
+  const { theme } = useTheme();
 
   async function handleDeleteQuestion(questionId: string) {
     if(window.confirm('Tem certeza que você deseja excluir esta pergunta?')) {
@@ -48,13 +52,14 @@ function AdminRoom() {
   }
 
   return (
-    <div id='page-room'>
-      <header>
+    <div id='page-room' className={theme}>
+      <header className={theme}>
         <div className='content'>
-          <img src={logoImage} alt='Letmeask' />
+          <img src={theme === 'light' ? logoImage : logoDarkImage} alt='Letmeask' />
           <div>
             <RoomCode code={roomId} />
             <Button isOutlined onClick={handleEndRoom}>Encerrar sala</Button>
+            <Toggle />
           </div>
         </div>
       </header>
