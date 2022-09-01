@@ -49,7 +49,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 ## 🔖 Layout
 
- -[Layout Web](https://www.figma.com/file/Uf2FtAixC7CNH2stDTTy0c/Letmeask-(Copy)?node-id=0%3A1)
+ - [Layout Web](https://www.figma.com/file/Uf2FtAixC7CNH2stDTTy0c/Letmeask-(Copy)?node-id=0%3A1)
 
 ## 🔥 Desafios
  - [ ] Tema dark
