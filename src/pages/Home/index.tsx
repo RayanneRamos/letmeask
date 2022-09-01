@@ -1,10 +1,12 @@
 import { FormEvent, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import toast, { Toaster } from 'react-hot-toast';
 import illustrationImage from '../../assets/images/illustration.svg';
 import logoImage from '../../assets/images/logo.svg';
 import googleIconImage from '../../assets/images/google-icon.svg';
 import logoDarkImage from '../../assets/images/logo-dark.svg';
 import githubIconImage from '../../assets/images/github-icon.png';
+import loginImage from '../../assets/images/login.svg';
 import { Button } from '../../components/Button';
 import { Toggle } from '../../components/Toggle';
 import { useAuth } from '../../hooks/useAuth';
@@ -38,18 +40,19 @@ function Home() {
     event.preventDefault();
 
     if(roomCode.trim() === '') {
+      toast.error('Campo está vazio!');
       return;
     }
 
     const roomRef = await database.ref(`rooms/${roomCode}`).get();
 
     if(!roomRef.exists()) {
-      alert('Room does not exists.');
+      toast.error('Está sala não existe!');
       return;
     }
 
     if(roomRef.val().endedAt) {
-      alert('Room already closed.');
+      toast.error('A sala está fechada.');
       return;
     }
 
@@ -64,6 +67,7 @@ function Home() {
         <p>Tire suas dúvidas da sua audiência em tempo-real</p>
       </aside>
       <main>
+        <Toaster position='top-right' toastOptions={{ duration: 2000 }} />
         <div className='main-content'>
           <div className='toggle'>
             <Toggle />
@@ -85,7 +89,10 @@ function Home() {
               value={roomCode}
               onChange={(event) => setRoomCode(event.target.value)}
             />
-            <Button type='submit'>Entrar na sala</Button>
+            <Button type='submit'>
+              <img src={loginImage} alt='login' />
+              Entrar na sala
+            </Button>
           </form>
         </div>
       </main>
