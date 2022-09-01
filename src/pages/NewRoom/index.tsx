@@ -54,6 +54,11 @@ function NewRoom() {
             <Toggle />
           </div>
           <img src={theme === 'light' ? logoImage : logoDarkImage} alt='Letmeask' />
+          { user && (
+            <div className='info-user'>
+              <img src={user?.avatar} alt={user?.name} />
+            </div>
+          ) }
           <h2>Criar uma nova sala</h2>
           <form onSubmit={handleCreateRoom}>
             <input 
