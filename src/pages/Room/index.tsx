@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import logoImage from '../../assets/images/logo.svg';
 import logoDarkImage from '../../assets/images/logo-dark.svg';
 import { Button } from '../../components/Button';
-import { Question } from '../../components/Question';
+import { CardQuestion } from '../../components/CardQuestion';
 import { RoomCode } from '../../components/RoomCode';
 import { Toggle } from '../../components/Toggle';
 import { useAuth } from '../../hooks/useAuth';
@@ -11,7 +11,7 @@ import { database } from '../../services/firebase';
 import { useRoom } from '../../hooks/useRoom';
 import { useTheme } from '../../hooks/useTheme';
 import '../../styles/room.scss';
-import '../../components/Question/styles.scss';
+import '../../components/CardQuestion/styles.scss';
 
 type RoomParams = {
   id: string;
@@ -96,7 +96,7 @@ function Room() {
         <div className='question-list'>
           { questions.map(question => {
             return (
-              <Question
+              <CardQuestion
                 key={question.id}
                 content={question.content}
                 author={question.author}
@@ -116,7 +116,7 @@ function Room() {
                     </svg>
                   </button>
                 ) }
-              </Question>
+              </CardQuestion>
             )
           })}
         </div>

@@ -155,6 +155,20 @@
     }
   }
 
+  .create-room-google {
+    margin-top: 50px;
+    background: #ea4335;
+  }
+
+  .create-room-github {
+    margin-top: 10px;
+    background: #050505;
+
+    &:hover {
+      filter: brightness(1.5);
+    }
+  }
+
   .separator {
     font-size: 14px;
     color: #a8a8a8;

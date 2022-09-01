@@ -4,6 +4,7 @@ import illustrationImage from '../../assets/images/illustration.svg';
 import logoImage from '../../assets/images/logo.svg';
 import googleIconImage from '../../assets/images/google-icon.svg';
 import logoDarkImage from '../../assets/images/logo-dark.svg';
+import githubIconImage from '../../assets/images/github-icon.png';
 import { Button } from '../../components/Button';
 import { Toggle } from '../../components/Toggle';
 import { useAuth } from '../../hooks/useAuth';
@@ -13,13 +14,21 @@ import '../../styles/auth.scss';
 
 function Home() {
   const navigate = useNavigate();
-  const { user, signInWithGoogle } = useAuth();
+  const { user, signInWithGoogle, signInWithGithub } = useAuth();
   const [ roomCode, setRoomCode ] = useState('');
   const { theme } = useTheme();
 
-  async function handleCreateRoom() {
+  async function handleCreateRoomGoogle() {
     if(!user) {
       await signInWithGoogle();
+    }
+
+    navigate('/rooms/new');
+  }
+
+  async function handleCreateRoomGithub() {
+    if(!user) {
+      await signInWithGithub();
     }
 
     navigate('/rooms/new');
@@ -60,9 +69,13 @@ function Home() {
             <Toggle />
           </div>
           <img src={theme === 'light' ? logoImage : logoDarkImage} alt='Letmeask' />
-          <button className='create-room' onClick={handleCreateRoom}>
+          <button className='create-room create-room-google' onClick={handleCreateRoomGoogle}>
             <img src={googleIconImage} alt='Logo do Google' />
             Crie sua sala com o Google
+          </button>
+          <button className='create-room create-room-github' onClick={handleCreateRoomGithub}>
+            <img src={githubIconImage} alt='Logo do Github' />
+            Crie sua sala com o Github
           </button>
           <div className='separator'>ou entre em uma sala</div>
           <form onSubmit={handleJoinRoom}>
