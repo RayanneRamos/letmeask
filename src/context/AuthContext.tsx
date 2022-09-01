@@ -11,6 +11,7 @@ type User = {
 type AuthContextType = {
   user: User | undefined;
   signInWithGoogle: () => Promise<void>;
+  signInWithGithub: () => Promise<void>;
 }
 
 type AuthContextProviderProps = {
@@ -63,8 +64,29 @@ function AuthContextProvider(props: AuthContextProviderProps) {
     }
   }
 
+  async function signInWithGithub() {
+    const provider = new firebase.auth.GithubAuthProvider();
+
+    const result = await auth.signInWithPopup(provider);
+    console.log(result);
+
+    if(result.user) {
+      const { displayName, photoURL, uid } = result.user;
+
+      if(!displayName || !photoURL) {
+        throw new Error('Missing information from Github Account');
+      }
+
+      setUser({
+        id: uid,
+        name: displayName,
+        avatar: photoURL,
+      });
+    }
+  }
+
   return (
-    <AuthContext.Provider value={{ user, signInWithGoogle }}>
+    <AuthContext.Provider value={{ user, signInWithGoogle, signInWithGithub }}>
       {props.children}
     </AuthContext.Provider>
   );
