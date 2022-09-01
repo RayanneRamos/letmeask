@@ -1,5 +1,6 @@
 import { FormEvent, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import toast, { Toaster } from 'react-hot-toast';
 import illustrationImage from '../../assets/images/illustration.svg';
 import logoImage from '../../assets/images/logo.svg';
 import logoDarkImage from '../../assets/images/logo-dark.svg';
@@ -20,6 +21,12 @@ function NewRoom() {
     event.preventDefault();
 
     if(newRoom.trim() === '') {
+      toast.error('Nome da sala está vazio!');
+      return;
+    }
+
+    if(!user) {
+      toast.error('Você precisa estar logado para criar uma sala!');
       return;
     }
 
@@ -30,7 +37,7 @@ function NewRoom() {
       authorId: user?.id,
     });
 
-    navigate(`/rooms/${firebaseRoom.key}`);
+    navigate(`/admin/rooms/${firebaseRoom.key}`);
   }
 
   return (
@@ -41,6 +48,7 @@ function NewRoom() {
         <p>Tire as dúvidas da sua audiência em tempo-real</p>
       </aside>
       <main>
+        <Toaster position='top-right' toastOptions={{ duration: 3000 }} />
         <div className='main-content'>
           <div className='toggle'>
             <Toggle />
