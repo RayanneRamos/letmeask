@@ -1,46 +1,82 @@
-# Getting Started with Create React App
+<p align='center'>
+  <img src='https://img.shields.io/badge/license-MIT-%23835afd' alt='License' />
+  <img src='https://img.shields.io/badge/forks-MIT-%23835afd' alt='Forks' />
+  <img src='https://img.shields.io/badge/stars-MIT-%23835afd' alt='Stars' />
+</P>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h1 align='center'>
+  <img src='https://user-images.githubusercontent.com/43352880/123683373-819d7600-d822-11eb-9825-5f21cef4c924.png' title='Letmeask' alt='Letmeask'/>
+</h1>
 
-## Available Scripts
+<br>
 
-In the project directory, you can run:
+## 💻 Projeto
+[Let Me Ask](https://letmeask-phi.vercel.app/) é um projeto desenvolvido durante a [Next Level Week #06](https://nextlevelweek.com/),
+apresentado pela [Rocketseat](https://rocketseat.com.br) entre 20 a 27 de Junho de 2021.
 
-### `npm start`
+ - [x] Aula 1
+ - [x] Aula 2
+ - [x] Aula 3
+ - [x] Aula 4
+ - [x] Aula 5
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## 🧪 Technologies
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Esse projeto foi desenvolvido com as seguintes tecnologias:
 
-### `npm test`
+ - [ReactJS](https://reactjs.org)
+ - [Firebase](https://firebase.google.com/)
+ - [Typescript](https://www.typescriptlang.org/)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 🚀 Instalação
 
-### `npm run build`
+```bash
+ # Clone o repositório e entre na pasta do projeto
+ $ git clone https://github.com/RayanneRamos/letmeask.git
+ $ cd letmeask
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+ # Instale as dependências
+ $ npm install
+ # ou
+ $ yarn install
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+ # Execute a aplicação
+ $ npm start
+ # ou
+ $ yarn start
+```
+ Abra http://localhost:3000 no seu navegador para ver a aplicação rodando!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 🔖 Layout
 
-### `npm run eject`
+ -[Layout Web](https://www.figma.com/file/Uf2FtAixC7CNH2stDTTy0c/Letmeask-(Copy)?node-id=0%3A1)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## 🔥 Desafios
+ - [ ] Tema dark
+ - [ ] Página não encontrada / Not Found
+ - [ ] Rota para exibir todas as salas
+ - [ ] Contagem do total de perguntas, likes e perguntas respondidas
+ - [ ] Redirecionamento direto para a rota admin após criar a sala
+ - [ ] Criar um componente toast do zero para usar em diversos momentos
+ - [ ] Exibir uma sala fechada, mas sem permissão de criação de perguntas e dar like
+ - [ ] Permitir o usuário deslogar na página admin e ao visualizar uma sala aberta
+ - [ ] Permitindo ordenar perguntas pela quantidade de likes na página da sala
+ - [ ] Login github
+ - [ ] Login com email e senha
+ - [ ] Modal de acções críticas do sistema
+ - [ ] Redirecionamento forçado de usuários/não usuários que estão em determinada sala e o admin encerrar a mesma 
+ - [ ] Redirecionamento forçado pelo backend quando alguem que NÃO seja o admin da sala tentar acessar a devida página admin
+ - [ ] PWA
+ - [ ] Criar a página Lista de Salas
+ - [ ] Adicionar animações na página
+ - [ ] Responsividade
+ - [ ] Testes na aplicação
+ - [ ] Deploy
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 📝 License
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Este projeto está licenciado sob a Licença MIT. Veja o arquivo [LICENSE](LICENSE) para obter mais detalhes.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+---
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+<p aling="center">Criado by Rayanne Ramos</p>
