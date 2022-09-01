@@ -22,6 +22,26 @@
     color: #835afd;
   }
 
+  &.danger {
+    background: #e73f5d;
+    border: 1px solid #e73f5d;
+    color: #fff;
+
+    &:hover {
+      background: #d73754;
+    }
+  }
+
+  &.logout {
+    background: #dcdcdd;
+    border: 1px solid #dbdcdd;
+    color: #737380;
+
+    &:hover {
+      background: #cecece;
+    }
+  }
+
   &:not(:disabled):hover {
     filter: brightness(0.9);
   }
