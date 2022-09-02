@@ -11,7 +11,7 @@ import { useAuth } from '../../hooks/useAuth';
 import { database } from '../../services/firebase';
 import { useRoom } from '../../hooks/useRoom';
 import { useTheme } from '../../hooks/useTheme';
-import '../../styles/room.scss';
+import './styles.scss';
 import '../../components/CardQuestion/styles.scss';
 import { Loading } from '../../components/Loading';
 
