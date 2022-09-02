@@ -69,7 +69,7 @@ function NewRoom() {
             />
             <Button type='submit'>Criar sala</Button>
           </form>
-          <p>Quer entrar em uma sala existente?<Link to='/'>cliquei aqui</Link></p>
+          <p>Quer entrar em uma sala existente? <br /> ainda não possui uma conta? <Link to='/'>cliquei aqui</Link></p>
         </div>
       </main>
     </div>
