@@ -26,6 +26,11 @@
             span, p {
               color: #a1a1a1;
             }
+
+            .logout {
+              background-color: transparent;
+              color: #fff;
+            }
           }
         }
       }
@@ -51,7 +56,7 @@
         img {
           max-height: 45px;
 
-          @media (max-width: 425px) {
+          @media screen and (max-width: 425px) {
             margin-bottom: 25px;
             max-height: 60px;
           }
@@ -138,6 +143,10 @@
         box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
         resize: vertical;
         min-height: 138px;
+
+        &:focus {
+          outline: 1px solid #835afd;
+        }
       }
 
       .form-footer {
