@@ -12,12 +12,12 @@ import { RoomCode } from '../../components/RoomCode';
 import { Toggle } from '../../components/Toggle';
 import { Modal } from '../../components/Modal';
 import { EmptyQuestion } from '../../components/EmptyQuestion';
+import '../../components/CardQuestion/styles.scss';
 import { useRoom } from '../../hooks/useRoom';
 import { useTheme } from '../../hooks/useTheme';
+import { useAuth } from '../../hooks/useAuth';
 import { database } from '../../services/firebase';
 import './styles.scss';
-import '../../components/CardQuestion/styles.scss';
-import { useAuth } from '../../hooks/useAuth';
 
 type RoomParams = {
   id: string;
