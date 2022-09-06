@@ -52,26 +52,26 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
  - [Layout Web](https://www.figma.com/file/Uf2FtAixC7CNH2stDTTy0c/Letmeask-(Copy)?node-id=0%3A1)
 
 ## 🔥 Desafios
- - [ ] Tema dark
- - [ ] Página não encontrada / Not Found
+ - [x] Tema dark
+ - [x] Página não encontrada / Not Found
  - [ ] Rota para exibir todas as salas
  - [ ] Contagem do total de perguntas, likes e perguntas respondidas
- - [ ] Redirecionamento direto para a rota admin após criar a sala
+ - [x] Redirecionamento direto para a rota admin após criar a sala
  - [ ] Criar um componente toast do zero para usar em diversos momentos
  - [ ] Exibir uma sala fechada, mas sem permissão de criação de perguntas e dar like
- - [ ] Permitir o usuário deslogar na página admin e ao visualizar uma sala aberta
+ - [x] Permitir o usuário deslogar na página admin e ao visualizar uma sala aberta
  - [ ] Permitindo ordenar perguntas pela quantidade de likes na página da sala
- - [ ] Login github
+ - [x] Login github
  - [ ] Login com email e senha
- - [ ] Modal de acções críticas do sistema
+ - [x] Modal de ações críticas do sistema
  - [ ] Redirecionamento forçado de usuários/não usuários que estão em determinada sala e o admin encerrar a mesma 
  - [ ] Redirecionamento forçado pelo backend quando alguem que NÃO seja o admin da sala tentar acessar a devida página admin
  - [ ] PWA
  - [ ] Criar a página Lista de Salas
- - [ ] Adicionar animações na página
- - [ ] Responsividade
+ - [x] Adicionar animações na página
+ - [x] Responsividade
  - [ ] Testes na aplicação
- - [ ] Deploy
+ - [x] Deploy
 
 ## 📝 License
 
