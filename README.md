@@ -57,10 +57,10 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
  - [ ] Rota para exibir todas as salas
  - [ ] Contagem do total de perguntas, likes e perguntas respondidas
  - [x] Redirecionamento direto para a rota admin após criar a sala
- - [ ] Criar um componente toast do zero para usar em diversos momentos
+ - [x] Criar um componente toast do zero para usar em diversos momentos
  - [ ] Exibir uma sala fechada, mas sem permissão de criação de perguntas e dar like
  - [x] Permitir o usuário deslogar na página admin e ao visualizar uma sala aberta
- - [ ] Permitindo ordenar perguntas pela quantidade de likes na página da sala
+ - [x] Permitindo ordenar perguntas pela quantidade de likes na página da sala
  - [x] Login github
  - [ ] Login com email e senha
  - [x] Modal de ações críticas do sistema
