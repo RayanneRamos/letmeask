@@ -128,7 +128,12 @@ function AdminRoom() {
         <main>
           <div className={`room-title ${theme}`}>
             <h1>Sala: {title}</h1>
-            { questionsQuantity > 0 && <span>{questionsQuantity} pergunta(s)</span> }
+            { questionsQuantity > 0 && (
+              <span>
+                { questionsQuantity}{' '}
+                { questionsQuantity > 1 ? 'perguntas' : 'pergunta' }
+              </span>
+            ) }
           </div>
           <div className='question-list'>
             { questionsQuantity > 0 ? (

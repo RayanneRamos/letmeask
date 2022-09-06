@@ -111,11 +111,16 @@ function Room() {
       <main>
         <div className='room-title'>
           <h1>Sala: {title}</h1>
-          { questionsQuantity > 0 && <span>{questionsQuantity} pergunta(s)</span> }
+          { questionsQuantity > 0 && (
+            <span>
+              { questionsQuantity }{' '}
+              {questionsQuantity > 1 ? 'perguntas' : 'pergunta'}
+            </span>
+          )}
         </div>
         <form onSubmit={handleSendQuestion}>
           <textarea 
-            placeholder='O que você quer perguntar:'
+            placeholder='O que você quer perguntar?'
             value={newQuestion}
             onChange={(event) => setNewQuestion(event.target.value)}
           />
