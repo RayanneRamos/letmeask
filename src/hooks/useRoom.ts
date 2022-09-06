@@ -74,9 +74,17 @@ function useRoom(roomId: string) {
             likeId: Object.entries(value.likes ?? {}).find(([ key, like ]) => like.authorId === user?.id)?.[0],
           };
         });
-        
+
+        const orderQuestionsByLikeCount = parsedQuestions.sort((roomA, roomB) => (
+          roomA.likeCount < roomB.likeCount ? 1 : roomA.likeCount > roomB.likeCount ? -1 : 0
+        ));
+
+        const orderQuestionsByNotAnswer = orderQuestionsByLikeCount.sort((roomA, roomB) => (
+          roomA.isAnswered > roomB.isAnswered ? 1 : roomA.isAnswered < roomB.isAnswered ? -1 : 0
+        ));
+
         setTitle(databaseRoom.title);
-        setQuestions(parsedQuestions);
+        setQuestions(orderQuestionsByNotAnswer);
       } else {
         navigate('/');
       }
