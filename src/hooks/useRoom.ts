@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { database } from "../services/firebase";
 import { useAuth } from "./useAuth";
@@ -47,6 +48,16 @@ function useRoom(roomId: string) {
 
     roomRef.on('value', room => {
       const databaseRoom = room.val();
+
+      if(databaseRoom?.closedAt && (user?.id !== databaseRoom?.authorId)) {
+        toast.error('Sala foi encerrada pelo admin');
+
+        navigate('/');
+
+        return () => {
+          roomRef.off('value');
+        }
+      }
 
       if(databaseRoom !== null) {
         const firebaseQuestions: FirebaseQuestions = databaseRoom.questions ?? {};
