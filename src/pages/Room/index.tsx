@@ -34,6 +34,7 @@ function Room() {
 
     if(dataRoom?.endedAt) {
       toast.error('Esta sala já está fechada!');
+      return;
     }
 
     if(newQuestion.trim() === '') {
@@ -97,7 +98,9 @@ function Room() {
     <div id='page-room' className={theme}>
       <header>
         <div className='content'>
-          <Link to='/'><img src={theme === 'light' ? logoImage : logoDarkImage} alt='Letmeask' /></Link>
+          <Link to='/'>
+            <img src={theme === 'light' ? logoImage : logoDarkImage} alt='Letmeask' />
+          </Link>
           <div>
             <RoomCode code={roomId} />
             <Toggle />
