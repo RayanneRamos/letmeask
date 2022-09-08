@@ -1,0 +1,144 @@
+#page-room {
+  min-height: 100vh;
+
+  &.dark {
+    background: #1c1e1f;
+
+    header {
+      border-bottom: 1px solid #4d4d4d;
+    }
+
+    main {
+      .question-list {
+        .room-box-div {
+          .empty-list {
+            h1 {
+              color: #fff;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  header {
+    padding: 20px;
+    border-bottom: 1px solid #e2e2e2;
+
+    .content {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      > img {
+        max-height: 45px;
+        cursor: pointer;
+      }
+
+      @media screen and (max-width: 720px) {
+        flex-direction: column;
+        gap: 10px;
+
+        .header-buttons-div {
+          display: flex;
+          flex-direction: column;
+        }
+      }
+
+      > div {
+        display: flex;
+        gap: 16px;
+
+        button {
+          height: 40px;
+        }
+      }
+    }
+  }
+
+  main {
+    max-width: 800px;
+    margin: 0 auto;
+
+    .question-list {
+      margin-top: 32px;
+
+      .room-box-div {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 8px;
+        width: fit-content;
+
+        .room-item-div {
+          cursor: pointer;
+          padding: 10px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 20px;
+          background: #835adf42;
+          border-radius: 8px;
+          height: 80px;
+          width: 300px;
+          transition: all 0.2s;
+
+          &:hover {
+            background: #835afd;
+            color: white;
+          }
+        }
+
+        .closed {
+          background: #737380;
+          color: white;
+
+          &:hover {
+            background: #737380;
+            opacity: 0.9;
+            color: black;
+          }
+        }
+
+        @media screen and (max-width: 720px) {
+          justify-content: center;
+          align-items: center;
+
+          .empty-list {
+            width: 100%;
+            text-align: center;
+          }
+
+          .room-item-div {
+            margin: 0 10px;
+          }
+        }
+      }
+
+      .empty-list {
+        font-family: 'Poppins', sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 60vw;
+        gap: 60px;
+
+        > h1 {
+          color: rgba(0, 0, 0, 0.8);
+        }
+
+        > img {
+          width: 300px;
+          opacity: 0.9;
+        }
+      }
+    }
+
+    @media screen and (max-width: 720px) {
+      margin: 0 13px;
+    }
+  }
+}
