@@ -59,6 +59,11 @@ function Home() {
     navigate(`/rooms/${roomCode}`);
   }
 
+  function handleGoToRoomList() {
+    navigate(`roomlist`);
+    return;
+  }
+
   return (
     <div id='page-auth' className={theme}>
       <aside>
@@ -93,6 +98,7 @@ function Home() {
               <img src={loginImage} alt='login' />
               Entrar na sala
             </Button>
+            <Button onClick={handleGoToRoomList}>Lista de Salas</Button>
           </form>
         </div>
       </main>
