@@ -70,6 +70,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
  - [x] Criar a página Lista de Salas
  - [x] Adicionar animações na página
  - [x] Responsividade
+ - [x] Animação do card de perguntas
  - [ ] Testes na aplicação
  - [x] Deploy
 
