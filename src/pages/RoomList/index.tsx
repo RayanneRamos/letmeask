@@ -42,9 +42,9 @@ function RoomList() {
     return navigate('/');
   }
 
-  function handleGoToRoom(questionId: string, isOpen: boolean) {
+  function handleGoToRoom(roomId: string, isOpen: boolean) {
     if(isOpen) {
-      return navigate(`rooms/${questionId}`);
+      return navigate(`/roomList/rooms/${roomId}`);
     } else {
       return toast.error('A sala já fechou');
     }
