@@ -80,9 +80,17 @@ function AdminRoom() {
   }
 
   async function handleHighlightQuestion(questionId: string) {
-    await database.ref(`rooms/${roomId}/questions/${questionId}`).update({
-      isHighLighted: true,
-    });
+    const currentQuestion = questions.filter(question => question.id === questionId);
+
+    if(currentQuestion[0].isHighLighted) {
+      await database.ref(`rooms/${roomId}/questions/${questionId}`).update({
+        isHighLighted: false,
+      });
+    } else {
+      await database.ref(`rooms/${roomId}/questions/${questionId}`).update({
+        isHighLighted: true,
+      });
+    }
   }
 
   async function handleLogOut() {
