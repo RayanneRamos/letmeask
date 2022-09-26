@@ -55,7 +55,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
  - [x] Tema dark
  - [x] Página não encontrada / Not Found
  - [x] Rota para exibir todas as salas
- - [ ] Contagem do total de perguntas, likes e perguntas respondidas
+ - [x] Contagem do total de pergunta
  - [x] Redirecionamento direto para a rota admin após criar a sala
  - [x] Criar um componente toast do zero para usar em diversos momentos
  - [x] Exibir uma sala fechada, mas sem permissão de criação de perguntas e dar like
@@ -64,8 +64,6 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
  - [x] Login github
  - [ ] Login com email e senha
  - [x] Modal de ações críticas do sistema
- - [ ] Redirecionamento forçado de usuários/não usuários que estão em determinada sala e o admin encerrar a mesma 
- - [ ] Redirecionamento forçado pelo backend quando alguem que NÃO seja o admin da sala tentar acessar a devida página admin
  - [ ] PWA
  - [x] Criar a página Lista de Salas
  - [x] Adicionar animações na página
