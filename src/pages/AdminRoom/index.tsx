@@ -55,16 +55,12 @@ function AdminRoom() {
     return;
   }
 
-  async function closedRoom() {
-    if(await userOwnsTheRoom()) {
-      if(dataRoom?.endedAt) {
-        toast.error('Está sala já está fechada!');
-        return;
-      } else {
-        setTypeModal('close');
-        setIsOpen(true);
-      }
-    } 
+  async function handleEndRoom () {
+    database.ref(`rooms/${roomId}`).update({
+      endedAt: new Date(),
+      roomIsOpen: false
+    })
+    navigate('/');
   }
 
   async function handleDeleteQuestion(questionId: string) {
@@ -111,7 +107,7 @@ function AdminRoom() {
             <Link to='/'><img src={theme === 'light' ? logoImage : logoDarkImage} alt='Letmeask' /></Link>
             <div>
               <RoomCode code={roomId} />
-              <Button isOutlined onClick={closedRoom}>Encerrar sala</Button>
+              <Button isOutlined onClick={handleEndRoom}>Encerrar sala</Button>
               { user && <Button
                 isOutlined
                 isLogout

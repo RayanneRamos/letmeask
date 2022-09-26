@@ -35,6 +35,7 @@ function NewRoom() {
     const firebaseRoom = await roomRef.push({
       title: newRoom,
       authorId: user?.id,
+      roomIsOpen: true,
     });
 
     navigate(`/admin/rooms/${firebaseRoom.key}`);
