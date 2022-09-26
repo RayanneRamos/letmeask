@@ -18,7 +18,8 @@ function App() {
           <Route path='/rooms/:id' element={<Room />} />
           <Route path='/admin/rooms/:id' element={<AdminRoom />} />
           <Route path='*' element={<NotFound />} />
-          <Route path='/RoomList' element={<RoomList />} />
+          <Route path='/roomList' element={<RoomList />} />
+          <Route path='/roomList/rooms/:id' element={<Room />} />
         </Routes>
       </AuthContextProvider>
     </BrowserRouter>
