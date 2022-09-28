@@ -64,7 +64,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
  - [x] Login github
  - [ ] Login com email e senha
  - [x] Modal de ações críticas do sistema
- - [ ] PWA
+ - [x] PWA
  - [x] Criar a página Lista de Salas
  - [x] Adicionar animações na página
  - [ ] Responsividade (Revisar)
