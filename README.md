@@ -67,9 +67,34 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
  - [ ] PWA
  - [x] Criar a página Lista de Salas
  - [x] Adicionar animações na página
- - [x] Responsividade
+ - [ ] Responsividade (Revisar)
  - [x] Animação do card de perguntas
  - [ ] Testes na aplicação
+ - [ ] Transições e Animações
+ - [ ] Autenticação de rotas privadas
+ - [ ] Permitir respostas do admin
+ - [ ] Adicionar favicon
+ - [ ] Quando o admin encerrar a sala os usuários são desconectados automaticamente
+ - [ ] Adicionar o nome e avatar do autor da sala
+ - [ ] Adicionar instruções para compartilhar o link da sala
+ - [ ] Adicionar opção de compartilhar (abre compartilhamento do dispositivo)
+ - [ ] Adicionar opção do usuário fazer login direto na sala (pra quem acessar via link)
+ - [ ] Adicionar like para admin
+ - [ ] Usuários podem acessar por código da sala ou inserindo o link no campo ou apenas acessando o link que é o mesmo do admin
+ - [ ] Altura máxima definida para cada question
+ - [ ] Scrool customizado quando ultrapassa altura máxima da question
+ - [ ] Ícones de opções que ampliam e mudam de cor com mouse
+ - [ ] Adicionei limite de 1000 caracteres com contador para novas perguntas (evitar spammers) e receber perguntas mais objetivas
+ - [ ] Mínimo 20 caracteres com alerta recomendado enviar apenas perguntas
+ - [ ] Adicionar integração com a Twitch
+ - [ ] Ordenação de comentários por data de envio
+ - [ ] Redirecionamento forçado de usuários / não usuários quando acessam a página admin sem está autenticado ou não é o proprietário da sala
+ - [ ] Menu de navegação entre a página de perguntas e a página de respostas / admin somente para o proprietário da sala
+ - [ ] Data de criação da sala e das perguntas
+ - [ ] Hooks de badge de identificação das novas perguntas 
+ - [ ] Mostrar todas as salas criadas, se são públicas ou não e se foram encerradas ou não
+ - [ ] Funcionaidade para filtrar as 20 primeiras questões com firebase
+ - [ ] Animações na tela inicial e em todos os botões da aplicação com o framer-motion
  - [x] Deploy
 
 ## 📝 License
