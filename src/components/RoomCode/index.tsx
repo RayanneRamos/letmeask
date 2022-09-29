@@ -1,22 +1,18 @@
 import copyImage from '../../assets/images/copy.svg';
 import './styles.scss';
-import toast from 'react-hot-toast';
+import { useToast } from '../../hooks/useToast';
 
 type RoomCodeProps = {
   code: string;
 }
 
 function RoomCode(props: RoomCodeProps) {
+  const { showToast } = useToast();
+
   function copyRoomCodeToClipboard() {
     navigator.clipboard.writeText(props.code);
 
-    toast((t) => {
-      t.position = 'bottom-right';
-      t.type = 'success';
-      t.message = 'Copiado para área de transferència';
-
-      return <></>;
-    })
+    showToast('✅', `Código da sala copiado!`);
   }
 
   return (
