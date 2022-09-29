@@ -67,7 +67,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
  - [x] PWA
  - [x] Criar a página Lista de Salas
  - [x] Adicionar animações na página
- - [ ] Responsividade (Revisar)
+ - [x] Responsividade
  - [x] Animação do card de perguntas
  - [ ] Testes na aplicação
  - [ ] Transições e Animações
@@ -84,7 +84,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
  - [ ] Altura máxima definida para cada question
  - [ ] Scrool customizado quando ultrapassa altura máxima da question
  - [ ] Ícones de opções que ampliam e mudam de cor com mouse
- - [ ] Adicionei limite de 1000 caracteres com contador para novas perguntas (evitar spammers) e receber perguntas mais objetivas
+ - [ ] Adicionar limite de 1000 caracteres com contador para novas perguntas (evitar spammers) e receber perguntas mais objetivas
  - [ ] Mínimo 20 caracteres com alerta recomendado enviar apenas perguntas
  - [ ] Adicionar integração com a Twitch
  - [ ] Ordenação de comentários por data de envio
@@ -95,6 +95,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
  - [ ] Mostrar todas as salas criadas, se são públicas ou não e se foram encerradas ou não
  - [ ] Funcionaidade para filtrar as 20 primeiras questões com firebase
  - [ ] Animações na tela inicial e em todos os botões da aplicação com o framer-motion
+ - [x] Feedback ao copiar o link do código da sala
  - [x] Deploy
 
 ## 📝 License
