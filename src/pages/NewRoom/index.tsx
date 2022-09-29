@@ -9,6 +9,7 @@ import { Toggle } from '../../components/Toggle';
 import { database } from '../../services/firebase';
 import { useAuth } from '../../hooks/useAuth';
 import { useTheme } from '../../hooks/useTheme';
+import { useToast } from '../../hooks/useToast';
 import '../../styles/auth.scss';
 
 function NewRoom() {
@@ -16,6 +17,7 @@ function NewRoom() {
   const [ newRoom, setNewRoom ] = useState('');
   const navigate = useNavigate();
   const { theme } = useTheme();
+  const { showToast } = useToast();
 
   async function handleCreateRoom(event: FormEvent) {
     event.preventDefault();
@@ -35,8 +37,17 @@ function NewRoom() {
     const firebaseRoom = await roomRef.push({
       title: newRoom,
       authorId: user?.id,
+      endedAt: null,
+      createdAt: new Date().getTime(),
+      author: {
+        name: user?.name,
+        avatar: user?.avatar,
+        id: user?.id,
+      },
       roomIsOpen: true,
     });
+
+    showToast('✅', `Sala ${newRoom} criada com sucesso!`);
 
     navigate(`/admin/rooms/${firebaseRoom.key}`);
   }
