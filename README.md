@@ -82,7 +82,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
  - [ ] Adicionar like para admin
  - [ ] Usuários podem acessar por código da sala ou inserindo o link no campo ou apenas acessando o link que é o mesmo do admin
  - [ ] Altura máxima definida para cada question
- - [ ] Scrool customizado quando ultrapassa altura máxima da question
+ - [x] Scrool customizado quando ultrapassa altura máxima da question
  - [ ] Ícones de opções que ampliam e mudam de cor com mouse
  - [ ] Adicionar limite de 1000 caracteres com contador para novas perguntas (evitar spammers) e receber perguntas mais objetivas
  - [ ] Mínimo 20 caracteres com alerta recomendado enviar apenas perguntas
@@ -90,8 +90,8 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
  - [ ] Ordenação de comentários por data de envio
  - [ ] Redirecionamento forçado de usuários / não usuários quando acessam a página admin sem está autenticado ou não é o proprietário da sala
  - [ ] Menu de navegação entre a página de perguntas e a página de respostas / admin somente para o proprietário da sala
- - [ ] Data de criação da sala e das perguntas
- - [ ] Hooks de badge de identificação das novas perguntas 
+ - [x] Data de criação da sala e das perguntas
+ - [x] Hooks de badge de identificação das novas perguntas 
  - [ ] Mostrar todas as salas criadas, se são públicas ou não e se foram encerradas ou não
  - [ ] Funcionaidade para filtrar as 20 primeiras questões com firebase
  - [ ] Animações na tela inicial e em todos os botões da aplicação com o framer-motion
