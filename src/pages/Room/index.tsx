@@ -151,6 +151,7 @@ function Room() {
                   author={question.author}
                   isAnswered={question.isAnswered}
                   isHighLighted={question.isHighLighted}
+                  createdAt={question.createdAt}
                 >
                   { !question.isAnswered && (
                     <button
