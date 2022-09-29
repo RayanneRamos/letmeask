@@ -75,7 +75,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
  - [ ] Permitir respostas do admin
  - [ ] Adicionar favicon
  - [ ] Quando o admin encerrar a sala os usuários são desconectados automaticamente
- - [ ] Adicionar o nome e avatar do autor da sala
+ - [x] Adicionar o nome e avatar do autor da sala
  - [ ] Adicionar instruções para compartilhar o link da sala
  - [ ] Adicionar opção de compartilhar (abre compartilhamento do dispositivo)
  - [ ] Adicionar opção do usuário fazer login direto na sala (pra quem acessar via link)
@@ -87,7 +87,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
  - [ ] Adicionar limite de 1000 caracteres com contador para novas perguntas (evitar spammers) e receber perguntas mais objetivas
  - [ ] Mínimo 20 caracteres com alerta recomendado enviar apenas perguntas
  - [ ] Adicionar integração com a Twitch
- - [ ] Ordenação de comentários por data de envio
+ - [x] Ordenação de comentários por data de envio
  - [ ] Redirecionamento forçado de usuários / não usuários quando acessam a página admin sem está autenticado ou não é o proprietário da sala
  - [ ] Menu de navegação entre a página de perguntas e a página de respostas / admin somente para o proprietário da sala
  - [x] Data de criação da sala e das perguntas
