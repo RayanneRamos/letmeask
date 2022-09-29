@@ -8,7 +8,8 @@ type QuestionType = {
   author: {
     name: string;
     avatar: string;
-  }
+  },
+  createdAt: number;
   content: string;
   isAnswered: boolean;
   isHighLighted: boolean;
@@ -20,7 +21,8 @@ type FirebaseQuestions = Record<string, {
   author: {
     name: string;
     avatar: string;
-  }
+  },
+  createdAt: number;
   content: string;
   isAnswered: boolean;
   isHighLighted: boolean;
@@ -35,12 +37,22 @@ type DataRoomProps = {
   title: string;
 }
 
+type AuthorRoom = {
+  id: string;
+  avatar: string;
+  name: string;
+}
+
 function useRoom(roomId: string) {
   const { user } = useAuth();
   const [ questions, setQuestions ] = useState<QuestionType[]>([]);
   const [ title, setTitle ] = useState('');
   const [ dataRoom, setDataRoom ] = useState<DataRoomProps>();
   const navigate = useNavigate();
+  const [ author, setAuthor ] = useState<AuthorRoom>();
+  const [ createdAt, setCreatedAt ] = useState<number>();
+  const [ endedAt, setEndedAt ] = useState<number>();
+
 
   useEffect(() => {
     const roomRef = database.ref(`rooms/${roomId}`);
@@ -57,6 +69,7 @@ function useRoom(roomId: string) {
             id: key,
             content: value.content,
             author: value.author,
+            createdAt: value.createdAt,
             isHighLighted: value.isHighLighted,
             isAnswered: value.isAnswered,
             likeCount: Object.values(value.likes ?? {}).length,
@@ -74,6 +87,9 @@ function useRoom(roomId: string) {
 
         setTitle(databaseRoom.title);
         setQuestions(orderQuestionsByNotAnswer);
+        setCreatedAt(databaseRoom.createdAt);
+        setAuthor(databaseRoom.author);
+        setEndedAt(databaseRoom.endedAt);
       } else {
         navigate('/');
       }
@@ -88,6 +104,9 @@ function useRoom(roomId: string) {
     questions,
     title,
     dataRoom,
+    endedAt,
+    createdAt,
+    author,
   }
 }
 
