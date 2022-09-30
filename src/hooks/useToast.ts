@@ -5,24 +5,25 @@ function useToast() {
     toast(message, {
       duration: 4000,
       position: 'top-center',
+      // Styling
       style: {},
       className: '',
+      // Custom Icon
       icon: icon,
+      // Change colors of success/error/loading icon
       iconTheme: {
         primary: '#000',
-        secondary: '#fff',
+        secondary: '#fff'
       },
+      // Aria
       ariaProps: {
         role: 'status',
-        'aria-live': 'polite',
+        'aria-live': 'polite'
       }
     });
   };
 
-  return {
-    showToast,
-    Toaster,
-  }
+  return { showToast, Toaster };
 }
 
 export { useToast };
