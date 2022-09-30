@@ -89,7 +89,6 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
  - [ ] Adicionar integração com a Twitch
  - [x] Ordenação de comentários por data de envio
  - [x] Redirecionamento forçado de usuários / não usuários quando acessam a página admin sem está autenticado ou não é o proprietário da sala
- - [ ] Menu de navegação entre a página de perguntas e a página de respostas / admin somente para o proprietário da sala
  - [x] Data de criação da sala e das perguntas
  - [x] Hooks de badge de identificação das novas perguntas 
  - [ ] Mostrar todas as salas criadas, se são públicas ou não e se foram encerradas ou não
