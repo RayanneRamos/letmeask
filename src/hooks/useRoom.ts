@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { database } from "../services/firebase";
 import { useAuth } from "./useAuth";
+import { useToast } from "./useToast";
 
 type QuestionType = {
   id: string;
@@ -37,28 +38,37 @@ type DataRoomProps = {
   title: string;
 }
 
-type AuthorRoom = {
-  id: string;
-  avatar: string;
-  name: string;
-}
-
 function useRoom(roomId: string) {
   const { user } = useAuth();
   const [ questions, setQuestions ] = useState<QuestionType[]>([]);
   const [ title, setTitle ] = useState('');
   const [ dataRoom, setDataRoom ] = useState<DataRoomProps>();
   const navigate = useNavigate();
-  const [ author, setAuthor ] = useState<AuthorRoom>();
+  const [ avatar, setAvatar ] = useState('');
   const [ createdAt, setCreatedAt ] = useState<number>();
   const [ endedAt, setEndedAt ] = useState<number>();
+  const [ name, setName ] = useState('');
+  const [ checkIsAdmin, setCheckIsAdmin ] = useState(false);
+  const { showToast } = useToast();
 
 
   useEffect(() => {
     const roomRef = database.ref(`rooms/${roomId}`);
 
+    roomRef.get().then(room => {
+      if(!room.exists()) {
+        showToast('🔴', 'Essa sala não existe ou foi excluída');
+        return navigate('/');
+      }
+    });
+
     roomRef.on('value', room => {
       const databaseRoom = room.val();
+
+      if(databaseRoom?.closedAt) {
+        showToast('🟥', 'Essa sala foi encerrada pelo administrador!!');
+        return navigate('/');
+      }
 
       if(databaseRoom !== null) {
         const firebaseQuestions: FirebaseQuestions = databaseRoom.questions ?? {};
@@ -88,8 +98,10 @@ function useRoom(roomId: string) {
         setTitle(databaseRoom.title);
         setQuestions(orderQuestionsByNotAnswer);
         setCreatedAt(databaseRoom.createdAt);
-        setAuthor(databaseRoom.author);
         setEndedAt(databaseRoom.endedAt);
+        setCheckIsAdmin(dataRoom?.authorId === user?.id ? true : false);
+        setAvatar(databaseRoom?.avatar);
+        setName(databaseRoom?.name);
       } else {
         navigate('/');
       }
@@ -98,15 +110,17 @@ function useRoom(roomId: string) {
     return () => {
       roomRef.off('value');
     }
-  }, [ roomId, user?.id, navigate ]);
+  }, [ roomId, checkIsAdmin, user?.id, navigate]);
 
   return {
     questions,
     title,
     dataRoom,
+    name,
+    avatar,
+    checkIsAdmin,
     endedAt,
     createdAt,
-    author,
   }
 }
 
