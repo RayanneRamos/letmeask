@@ -24,10 +24,12 @@ function Room() {
   const roomId = params.id as string;
   const [ newQuestion, setNewQuestion ] = useState('');
   const { user, signInWithGoogle, signOut } = useAuth();
-  const { title, questions, dataRoom } = useRoom(roomId);
+  const { title, questions, dataRoom, avatar, name, checkIsAdmin } = useRoom(roomId);
   const { theme } = useTheme();
   const navigate = useNavigate();
   const questionsQuantity = questions.length;
+  const limitCaracterNewQuestion = 1000;
+  const minCaracterNewQuestion = 20;
 
   async function handleSendQuestion(event: FormEvent) {
     event.preventDefault();
@@ -47,9 +49,15 @@ function Room() {
       return;
     }
 
+    if(newQuestion.trim().length < minCaracterNewQuestion) {
+      alert('Por favor enviar apenas perguntas. Mínimo 20 caracteres');
+      return;
+    }
+
     const question = {
       content: newQuestion,
       author: {
+        id: user?.id,
         name: user.name,
         avatar: user.avatar,
       },
@@ -57,10 +65,22 @@ function Room() {
       isAnswered: false,
     };
 
-    await database.ref(`rooms/${roomId}/questions`).push(question);
-    toast.success('Pergunta enviada com sucesso!');
+    try {
+      setNewQuestion('');
+      await database.ref(`rooms/${roomId}/questions`).push(question);
+      toast.success('Pergunta enviada com sucesso!');
+    } catch(error) {
+      alert('Ocorreu algum erro ao enviar sua pergunta. Tente novamente.');
+      setNewQuestion(question.content);
+    }
+  }
 
-    setNewQuestion('');
+  function handleSetQuestion(value: string) {
+    if(value.length > limitCaracterNewQuestion) {
+      alert('Máximo 1000 caracteres');
+    } else {
+      setNewQuestion(value);
+    }
   }
 
   async function handleLikeQuestion(questionId: string, likeId: string | undefined) {
@@ -110,6 +130,10 @@ function Room() {
       </header>
       <main>
         <div className='room-title'>
+          <div className='avatar'>
+            <img src={avatar} alt={name} />
+            <p>{name}</p>
+          </div>
           <h1>Sala: {title}</h1>
           { questionsQuantity > 0 && (
             <span>
@@ -118,27 +142,36 @@ function Room() {
             </span>
           )}
         </div>
-        <form onSubmit={handleSendQuestion}>
-          <textarea 
-            placeholder='O que você quer perguntar?'
-            value={newQuestion}
-            onChange={(event) => setNewQuestion(event.target.value)}
-          />
-          <div className='form-footer'>
-            { user ? (
-              <div className='user-info'>
-                <img src={user.avatar}  alt={user.name} />
-                <div className='logout'>
-                  <p>{user.name}</p>
-                  <span onClick={handleLogOut}>Deslogar</span>
+        { !checkIsAdmin && (
+          <form onSubmit={handleSendQuestion}>
+            <textarea 
+              placeholder='O que você quer perguntar?'
+              value={newQuestion}
+              onChange={(event) => handleSetQuestion(event.target.value)}
+            />
+            <div className='form-footer'>
+              { !user ? (
+                <span>
+                  Para enviar uma pergunta, { "" }
+                  <Button className='link' onClick={handleUserLoginGoogle}>
+                    Faça seu login
+                  </Button>
+                </span>
+              ) : (
+                <div className='user-info'>
+                  <img src={user.avatar}  alt={user.name} />
+                  <div className='logout'>
+                    <p>{user.name}</p>
+                    <span className='limit'>{`${newQuestion.length} | ${limitCaracterNewQuestion}`}</span>
+                    <span onClick={handleLogOut}>Deslogar</span>
+                  </div>
                 </div>
-              </div>
-            ) : (
-              <span>Para enviar uma pergunta, <button type='button' onClick={handleUserLoginGoogle}>faça seu login</button></span>
-            ) }
-            <Button type='submit' disabled={!user}>Enviar pergunta</Button>
-          </div>
-        </form>
+              ) }
+              <Button type='submit' disabled={!user}>Enviar pergunta</Button>
+            </div>
+          </form>
+        )}
+        
         <div className='question-list'>
           { questionsQuantity === 0 ? (
             <Loading />

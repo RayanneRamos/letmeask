@@ -39,7 +39,7 @@
 
   header {
     padding: 24px;
-    border-bottom: 1px solid #e2e2e2;
+    border-bottom: 5px solid #e2e2e2;
 
     .content {
       max-width: 1120px;
@@ -47,6 +47,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      flex-wrap: wrap;
 
       @media screen and (max-width: 425px) {
         flex-direction: column;
@@ -61,10 +62,17 @@
       > div {
         display: flex;
         align-items: center;
-        gap: 16px;
+        gap: 8px;
+        flex-wrap: wrap;
 
         button {
           height: 40px;
+        }
+
+        img {
+          max-height: 75px;
+          margin: 10px;
+          filter: brightness(100%) contrast(100%);
         }
       }
     }
@@ -78,6 +86,24 @@
       margin: 32px 0 24px;
       display: flex;
       align-items: center;
+
+      .avatar {
+        justify-content: right;
+        text-align: center;
+        width: auto;
+
+        img {
+          height: 65px;
+          width: 65px;
+          border-radius: 50%;
+          background-color: #fff;
+          margin-right: 42px;
+        }
+
+        p {
+          font-size: 13px;
+        }
+      }
 
       h1 {
         font-family: 'Poppins',  sans-serif;
@@ -117,6 +143,8 @@
         justify-content: space-between;
         align-items: center;
         margin-top: 16px;
+        gap: 15px;
+        flex-wrap: wrap;
 
         .user-info {
           display: flex;
