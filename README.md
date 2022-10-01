@@ -73,7 +73,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
  - [ ] Transições e Animações
  - [ ] Autenticação de rotas privadas
  - [ ] Permitir respostas do admin
- - [ ] Adicionar favicon
+ - [x] Adicionar favicon
  - [ ] Quando o admin encerrar a sala os usuários são desconectados automaticamente
  - [x] Adicionar o nome e avatar do autor da sala
  - [ ] Adicionar instruções para compartilhar o link da sala
@@ -81,11 +81,11 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
  - [ ] Adicionar opção do usuário fazer login direto na sala (pra quem acessar via link)
  - [ ] Adicionar like para admin
  - [ ] Usuários podem acessar por código da sala ou inserindo o link no campo ou apenas acessando o link que é o mesmo do admin
- - [ ] Altura máxima definida para cada question
+ - [x] Altura máxima definida para cada question
  - [x] Scrool customizado quando ultrapassa altura máxima da question
  - [ ] Ícones de opções que ampliam e mudam de cor com mouse
- - [ ] Adicionar limite de 1000 caracteres com contador para novas perguntas (evitar spammers) e receber perguntas mais objetivas
- - [ ] Mínimo 20 caracteres com alerta recomendado enviar apenas perguntas
+ - [x] Adicionar limite de 1000 caracteres com contador para novas perguntas (evitar spammers) e receber perguntas mais objetivas
+ - [x] Mínimo 20 caracteres com alerta recomendado enviar apenas perguntas
  - [ ] Adicionar integração com a Twitch
  - [x] Ordenação de comentários por data de envio
  - [x] Redirecionamento forçado de usuários / não usuários quando acessam a página admin sem está autenticado ou não é o proprietário da sala
