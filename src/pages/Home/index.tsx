@@ -45,6 +45,9 @@ function Home() {
       return;
     }
 
+    let roomCodeClean = roomCode.replace(window.location.href + 'rooms/', '');
+    setRoomCode(roomCodeClean);
+
     const roomRef = await database.ref(`rooms/${roomCode}`).get();
 
     if(!roomRef.exists()) {

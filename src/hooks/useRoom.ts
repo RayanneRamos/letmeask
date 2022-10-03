@@ -110,7 +110,7 @@ function useRoom(roomId: string) {
     return () => {
       roomRef.off('value');
     }
-  }, [ roomId, checkIsAdmin, user?.id, navigate]);
+  }, [roomId, checkIsAdmin, user?.id, navigate, showToast, dataRoom?.authorId]);
 
   return {
     questions,
