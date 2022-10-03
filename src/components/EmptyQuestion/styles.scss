@@ -6,17 +6,42 @@
   margin-top: 80px;
   gap: 14px;
 
-  p {
+  button {
+    border: none;
+  }
+
+  h3 {
+    margin-top: 30px;
     font-weight: 600;
     font-family: 'Poppins', sans-serif;
     font-size: 18px;
     color: #29292e;
   }
 
-  span {
-    font-weight: 400;
-    color: #737380;
+  .link {
+    font-size: medium;
+    background: none;
+    text-decoration: none;
+    color: #835afd;
+
+    &:hover {
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+
+  h4 {
     font-size: 14px;
+    font-weight: 100;
+    margin-top: 10px;
+  }
+
+  hr {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 0;
+    border-bottom: 1 solid #d7d7d7;
+    border-top: 1px solid #fff;
   }
 }
 

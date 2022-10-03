@@ -6,13 +6,27 @@ import './styles.scss';
 function EmptyQuestion() {
   const theme = useTheme();
 
+  function copyRoomCodeToClipboard() {
+    navigator.clipboard.writeText(window.location.href);
+
+    const shareData = {
+      title: 'Letmeask',
+      text: 'Sala',
+      url: window.location.href,
+    };
+
+    navigator.share(shareData);
+  }
+
   return (
     <div className={`empty-question ${theme}`}>
-      <img src={emptyImage} alt='' />
-      <p>Nenhuma pergunta por aqui...</p>
-      <span>
-        Envie o código desta sala para seus amigos e <br /> comece a responder perguntas!
-      </span>
+      <img src={emptyImage} alt='nenhuma questão' />
+      <h3>Nenhuma pergunta por aqui...</h3>
+      <hr />
+      <span>Compartilhe o link da sala com o público interessado: </span>
+      <button className='link' onClick={copyRoomCodeToClipboard}>
+        {window.location.href}
+      </button>
       <Loading />
     </div>
   );
