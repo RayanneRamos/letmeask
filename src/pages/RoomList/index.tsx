@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import toast, { Toaster } from 'react-hot-toast';
 import logoImage from '../../assets/images/logo.svg';
 import logoDarkImage from '../../assets/images/logo-dark.svg';
 import emptyRoomImage from '../../assets/images/empty-room.svg';
@@ -8,6 +7,7 @@ import { Toggle } from '../../components/Toggle';
 import { database } from '../../services/firebase';
 import { useTheme } from '../../hooks/useTheme';
 import './styles.scss';
+import { useToast } from '../../hooks/useToast';
 
 type RoomTypeProps = {
   roomId: string;
@@ -20,6 +20,7 @@ function RoomList() {
   const [ rooms, setRooms ] = useState<RoomTypeProps>([]);
   const [ isLoading, setIsLoading ] = useState<boolean>(true);
   const { theme } = useTheme();
+  const { showToast, Toaster } = useToast();
 
   useEffect(() => {
     const dbRef = database.ref(`rooms`);
@@ -46,7 +47,7 @@ function RoomList() {
     if(isOpen) {
       return navigate(`/roomList/rooms/${roomId}`);
     } else {
-      return toast.error('A sala já fechou');
+      return showToast('❌', 'A sala já fechou');
     }
   }
 

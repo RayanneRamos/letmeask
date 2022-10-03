@@ -1,6 +1,5 @@
 import { FormEvent, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import toast, { Toaster } from 'react-hot-toast';
 import illustrationImage from '../../assets/images/illustration.svg';
 import logoImage from '../../assets/images/logo.svg';
 import logoDarkImage from '../../assets/images/logo-dark.svg';
@@ -17,18 +16,18 @@ function NewRoom() {
   const [ newRoom, setNewRoom ] = useState('');
   const navigate = useNavigate();
   const { theme } = useTheme();
-  const { showToast } = useToast();
+  const { showToast, Toaster } = useToast();
 
   async function handleCreateRoom(event: FormEvent) {
     event.preventDefault();
 
     if(newRoom.trim() === '') {
-      toast.error('Nome da sala está vazio!');
+      showToast('⚠️', 'Nome da sala está vazio!');
       return;
     }
 
     if(!user) {
-      toast.error('Você precisa estar logado para criar uma sala!');
+      showToast('⚠️', 'Você precisa estar logado para criar uma sala!');
       return;
     }
 

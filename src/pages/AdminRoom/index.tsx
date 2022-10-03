@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { useNavigate, useParams, Link } from 'react-router-dom';
-import toast, { Toaster } from 'react-hot-toast';
 import logoImage from '../../assets/images/logo.svg';
 import deleteImage from '../../assets/images/delete.svg';
 import checkImage from '../../assets/images/check.svg';
@@ -18,6 +17,7 @@ import { useTheme } from '../../hooks/useTheme';
 import { useAuth } from '../../hooks/useAuth';
 import { database } from '../../services/firebase';
 import './styles.scss';
+import { useToast } from '../../hooks/useToast';
 
 type RoomParams = {
   id: string;
@@ -35,10 +35,11 @@ function AdminRoom() {
   const [ isOpen, setIsOpen ] = useState(false);
   const [ questionIdModal, setQuestionIdModal ] = useState('');
   const [ typeModal, setTypeModal ] = useState('');
+  const { showToast, Toaster } = useToast();
 
   function userIsLogged() {
     if(!user) {
-      toast.error('Você deve estar logado!');
+      showToast('⚠️', 'Você deve estar logado!');
       return;
     }
 
@@ -52,7 +53,7 @@ function AdminRoom() {
       return true;
     }
 
-    toast.error('Você não pode executar está ação');
+    showToast('🔴', 'Você não pode executar está ação');
     return;
   }
 

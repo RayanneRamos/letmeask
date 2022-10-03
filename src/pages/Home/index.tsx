@@ -1,6 +1,5 @@
 import { FormEvent, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import toast, { Toaster } from 'react-hot-toast';
 import illustrationImage from '../../assets/images/illustration.svg';
 import logoImage from '../../assets/images/logo.svg';
 import googleIconImage from '../../assets/images/google-icon.svg';
@@ -13,12 +12,14 @@ import { useAuth } from '../../hooks/useAuth';
 import { useTheme } from '../../hooks/useTheme';
 import { database } from '../../services/firebase';
 import '../../styles/auth.scss';
+import { useToast } from '../../hooks/useToast';
 
 function Home() {
   const navigate = useNavigate();
   const { user, signInWithGoogle, signInWithGithub } = useAuth();
   const [ roomCode, setRoomCode ] = useState('');
   const { theme } = useTheme();
+  const { showToast, Toaster } = useToast();
 
   async function handleCreateRoomGoogle() {
     if(!user) {
@@ -40,19 +41,19 @@ function Home() {
     event.preventDefault();
 
     if(roomCode.trim() === '') {
-      toast.error('Campo está vazio!');
+      showToast('⚠️', 'Campo está vazio!');
       return;
     }
 
     const roomRef = await database.ref(`rooms/${roomCode}`).get();
 
     if(!roomRef.exists()) {
-      toast.error('Está sala não existe!');
+      showToast('❌', 'Está sala não existe!');
       return;
     }
 
     if(roomRef.val().endedAt) {
-      toast.error('A sala está fechada.');
+      showToast('🔴', 'A sala está fechada.');
       return;
     }
 

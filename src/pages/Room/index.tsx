@@ -1,6 +1,5 @@
 import { FormEvent, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
-import toast, { Toaster } from 'react-hot-toast';
 import logoImage from '../../assets/images/logo.svg';
 import logoDarkImage from '../../assets/images/logo-dark.svg';
 import { Button } from '../../components/Button';
@@ -14,6 +13,7 @@ import { useTheme } from '../../hooks/useTheme';
 import './styles.scss';
 import '../../components/CardQuestion/styles.scss';
 import { Loading } from '../../components/Loading';
+import { useToast } from '../../hooks/useToast';
 
 type RoomParams = {
   id: string;
@@ -30,27 +30,28 @@ function Room() {
   const questionsQuantity = questions.length;
   const limitCaracterNewQuestion = 1000;
   const minCaracterNewQuestion = 20;
+  const { showToast, Toaster } = useToast();
 
   async function handleSendQuestion(event: FormEvent) {
     event.preventDefault();
 
     if(dataRoom?.endedAt) {
-      toast.error('Esta sala já está fechada!');
+      showToast('❌', 'Esta sala já está fechada!');
       return;
     }
 
     if(newQuestion.trim() === '') {
-      toast.error('Campo de pergunta está vazio!');
+      showToast('⚠️', 'Campo de pergunta está vazio!');
       return;
     }
 
     if(!user) {
-      toast.error('You must be logged in');
+      showToast('⚠️', 'You must be logged in');
       return;
     }
 
     if(newQuestion.trim().length < minCaracterNewQuestion) {
-      alert('Por favor enviar apenas perguntas. Mínimo 20 caracteres');
+      showToast('⚠️', 'Por favor enviar apenas perguntas. Mínimo 20 caracteres');
       return;
     }
 
@@ -68,16 +69,16 @@ function Room() {
     try {
       setNewQuestion('');
       await database.ref(`rooms/${roomId}/questions`).push(question);
-      toast.success('Pergunta enviada com sucesso!');
+      showToast('✅', 'Pergunta enviada com sucesso!');
     } catch(error) {
-      alert('Ocorreu algum erro ao enviar sua pergunta. Tente novamente.');
+      showToast('⚠️', 'Ocorreu algum erro ao enviar sua pergunta. Tente novamente.');
       setNewQuestion(question.content);
     }
   }
 
   function handleSetQuestion(value: string) {
     if(value.length > limitCaracterNewQuestion) {
-      alert('Máximo 1000 caracteres');
+      showToast('❌', 'Máximo 1000 caracteres');
     } else {
       setNewQuestion(value);
     }
@@ -86,7 +87,7 @@ function Room() {
   async function handleLikeQuestion(questionId: string, likeId: string | undefined) {
     
     if(!user) {
-      toast.error('Você deve estar logado!');
+      showToast('⚠️', 'Você deve estar logado!');
       return;
     }
     
@@ -110,7 +111,7 @@ function Room() {
       await signOut();
       navigate('/');
     } else {
-      toast.error('Você não está logado!');
+      showToast('⚠️', 'Você deve estar logado!');
     }
   }
 
