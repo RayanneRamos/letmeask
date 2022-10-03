@@ -76,11 +76,11 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
  - [x] Adicionar favicon
  - [ ] Quando o admin encerrar a sala os usuários são desconectados automaticamente
  - [x] Adicionar o nome e avatar do autor da sala
- - [ ] Adicionar instruções para compartilhar o link da sala
- - [ ] Adicionar opção de compartilhar (abre compartilhamento do dispositivo)
- - [ ] Adicionar opção do usuário fazer login direto na sala (pra quem acessar via link)
+ - [x] Adicionar instruções para compartilhar o link da sala
+ - [x] Adicionar opção de compartilhar (abre compartilhamento do dispositivo)
+ - [x] Adicionar opção do usuário fazer login direto na sala (pra quem acessar via link)
  - [ ] Adicionar like para admin
- - [ ] Usuários podem acessar por código da sala ou inserindo o link no campo ou apenas acessando o link que é o mesmo do admin
+ - [x] Usuários podem acessar por código da sala ou inserindo o link no campo ou apenas acessando o link que é o mesmo do admin
  - [x] Altura máxima definida para cada question
  - [x] Scrool customizado quando ultrapassa altura máxima da question
  - [ ] Ícones de opções que ampliam e mudam de cor com mouse
