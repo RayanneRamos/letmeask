@@ -1,5 +1,6 @@
 import { FormEvent, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
+import toast, { Toaster } from 'react-hot-toast';
 import logoImage from '../../assets/images/logo.svg';
 import logoDarkImage from '../../assets/images/logo-dark.svg';
 import { Button } from '../../components/Button';
@@ -13,7 +14,6 @@ import { useTheme } from '../../hooks/useTheme';
 import './styles.scss';
 import '../../components/CardQuestion/styles.scss';
 import { Loading } from '../../components/Loading';
-import { useToast } from '../../hooks/useToast';
 
 type RoomParams = {
   id: string;
@@ -24,34 +24,33 @@ function Room() {
   const roomId = params.id as string;
   const [ newQuestion, setNewQuestion ] = useState('');
   const { user, signInWithGoogle, signOut } = useAuth();
-  const { title, questions, dataRoom, avatar, name, checkIsAdmin } = useRoom(roomId);
+  const { title, questions, dataRoom, avatar, name } = useRoom(roomId);
   const { theme } = useTheme();
   const navigate = useNavigate();
   const questionsQuantity = questions.length;
   const limitCaracterNewQuestion = 1000;
   const minCaracterNewQuestion = 20;
-  const { showToast, Toaster } = useToast();
 
   async function handleSendQuestion(event: FormEvent) {
     event.preventDefault();
 
     if(dataRoom?.endedAt) {
-      showToast('❌', 'Esta sala já está fechada!');
+      toast.error('Esta sala já está fechada!');
       return;
     }
 
     if(newQuestion.trim() === '') {
-      showToast('⚠️', 'Campo de pergunta está vazio!');
+      toast.error('Campo de pergunta está vazio!');
       return;
     }
 
     if(!user) {
-      showToast('⚠️', 'You must be logged in');
+      toast.error('You must be logged in');
       return;
     }
 
     if(newQuestion.trim().length < minCaracterNewQuestion) {
-      showToast('⚠️', 'Por favor enviar apenas perguntas. Mínimo 20 caracteres');
+      alert('Por favor enviar apenas perguntas. Mínimo 20 caracteres');
       return;
     }
 
@@ -69,16 +68,16 @@ function Room() {
     try {
       setNewQuestion('');
       await database.ref(`rooms/${roomId}/questions`).push(question);
-      showToast('✅', 'Pergunta enviada com sucesso!');
+      toast.success('Pergunta enviada com sucesso!');
     } catch(error) {
-      showToast('⚠️', 'Ocorreu algum erro ao enviar sua pergunta. Tente novamente.');
+      alert('Ocorreu algum erro ao enviar sua pergunta. Tente novamente.');
       setNewQuestion(question.content);
     }
   }
 
   function handleSetQuestion(value: string) {
     if(value.length > limitCaracterNewQuestion) {
-      showToast('❌', 'Máximo 1000 caracteres');
+      alert('Máximo 1000 caracteres');
     } else {
       setNewQuestion(value);
     }
@@ -87,7 +86,7 @@ function Room() {
   async function handleLikeQuestion(questionId: string, likeId: string | undefined) {
     
     if(!user) {
-      showToast('⚠️', 'Você deve estar logado!');
+      toast.error('Você deve estar logado!');
       return;
     }
     
@@ -111,7 +110,7 @@ function Room() {
       await signOut();
       navigate('/');
     } else {
-      showToast('⚠️', 'Você deve estar logado!');
+      toast.error('Você não está logado!');
     }
   }
 
@@ -143,8 +142,7 @@ function Room() {
             </span>
           )}
         </div>
-        { !checkIsAdmin && (
-          <form onSubmit={handleSendQuestion}>
+        <form onSubmit={handleSendQuestion}>
             <textarea 
               placeholder='O que você quer perguntar?'
               value={newQuestion}
@@ -159,19 +157,20 @@ function Room() {
                   </Button>
                 </span>
               ) : (
-                <div className='user-info'>
-                  <img src={user.avatar}  alt={user.name} />
-                  <div className='logout'>
+                <>
+                  <div className='user-info'>
+                    <img src={user.avatar}  alt={user.name} />
                     <p>{user.name}</p>
                     <span className='limit'>{`${newQuestion.length} | ${limitCaracterNewQuestion}`}</span>
-                    <span onClick={handleLogOut}>Deslogar</span>
+                    <div className='logout'>
+                      <span onClick={handleLogOut}>Deslogar</span>
+                    </div>
                   </div>
-                </div>
+                </>
               ) }
               <Button type='submit' disabled={!user}>Enviar pergunta</Button>
             </div>
           </form>
-        )}
         
         <div className='question-list'>
           { questionsQuantity === 0 ? (
