@@ -18,6 +18,7 @@ import { useAuth } from '../../hooks/useAuth';
 import { database } from '../../services/firebase';
 import './styles.scss';
 import { useToast } from '../../hooks/useToast';
+import { Stats } from '../../components/Stats';
 
 type RoomParams = {
   id: string;
@@ -95,6 +96,26 @@ function AdminRoom() {
     }
   }
 
+  function getAllLikes() {
+    const allLikeQuestions = questions.reduce((somaLikes, question) => {
+      return somaLikes + question.likeCount;
+    }, 0)
+
+    return allLikeQuestions;
+  }
+
+  function getAllAnsweredQuestions() {
+    const allAnsweredQuestions = questions.reduce((somaAnswered, question) => {
+      if(question.isAnswered) {
+        somaAnswered++;
+      }
+
+      return somaAnswered;
+    }, 0);
+
+    return allAnsweredQuestions;
+  }
+
   async function handleLogOut() {
     await signOut();
     navigate('/');
@@ -140,7 +161,11 @@ function AdminRoom() {
                 { questionsQuantity > 1 ? 'perguntas' : 'pergunta' }
               </span>
             ) }
-          </div>      
+          </div>   
+          <div className='all-stats'>
+            <Stats text='Respondida(s)' firstStats={getAllAnsweredQuestions()} borderColor='#835afd' />
+            <Stats text='Likes' secondStats={getAllLikes()} borderColor='#e559f9' />    
+          </div>   
           <div className='question-list'>
             { questionsQuantity > 0 ? (
                 questions.map(question => {
