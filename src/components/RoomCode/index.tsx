@@ -4,6 +4,8 @@ import { useToast } from '../../hooks/useToast';
 
 type RoomCodeProps = {
   code: string;
+  text?: string | undefined;
+  isEnded?: boolean;
 }
 
 function RoomCode(props: RoomCodeProps) {
