@@ -24,7 +24,7 @@ function Room() {
   const roomId = params.id as string;
   const [ newQuestion, setNewQuestion ] = useState('');
   const { user, signInWithGoogle, signOut } = useAuth();
-  const { title, questions, dataRoom, avatar, name } = useRoom(roomId);
+  const { title, questions, dataRoom } = useRoom(roomId);
   const { theme } = useTheme();
   const navigate = useNavigate();
   const questionsQuantity = questions.length;
@@ -132,8 +132,8 @@ function Room() {
       <main>
         <div className='room-title'>
           <div className='avatar'>
-            <img src={avatar} alt={name} />
-            <p>{name}</p>
+            <img src={user?.avatar} alt={user?.name} />
+            <p>{user?.name}</p>
           </div>
           <h1>Sala: {title}</h1>
           { questionsQuantity > 0 && (
