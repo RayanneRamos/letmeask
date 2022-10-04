@@ -14,6 +14,7 @@ import './styles.scss';
 import '../../components/CardQuestion/styles.scss';
 import { Loading } from '../../components/Loading';
 import { useToast } from '../../hooks/useToast';
+import { Stats } from '../../components/Stats';
 
 type RoomParams = {
   id: string;
@@ -100,6 +101,26 @@ function Room() {
     }
   }
 
+  function getAllLikes() {
+    const allLikeQuestions = questions.reduce((somaLikes, question) => {
+      return somaLikes + question.likeCount;
+    }, 0);
+
+    return allLikeQuestions;
+  }
+
+  function getAllAnsweredQuestions() {
+    const allAnsweredQuestions = questions.reduce((somaAnswered, questions) => {
+      if(questions.isAnswered) {
+        somaAnswered++;
+      }
+
+      return somaAnswered;
+    }, 0);
+    
+    return allAnsweredQuestions;
+  }
+
   async function handleUserLoginGoogle() {
     if(!user) {
       await signInWithGoogle();
@@ -142,6 +163,10 @@ function Room() {
               {questionsQuantity > 1 ? 'perguntas' : 'pergunta'}
             </span>
           )}
+        </div>
+        <div className='all-stats'>
+          <Stats text='Respondida(s)' firstStats={getAllAnsweredQuestions()} borderColor='#835afd' />
+          <Stats text='Likes' secondStats={getAllLikes()} borderColor='#e559f9' />
         </div>
         <form onSubmit={handleSendQuestion}>
             <textarea 
