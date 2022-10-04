@@ -61,7 +61,6 @@ function AdminRoom() {
   async function handleEndRoom () {
     database.ref(`rooms/${roomId}`).update({
       endedAt: new Date(),
-      roomIsOpen: false
     })
     navigate('/');
   }
