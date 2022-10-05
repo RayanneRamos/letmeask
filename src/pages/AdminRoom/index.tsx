@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef, FormEvent, Fragment, useCallback } from 'react';
 import { useNavigate, useParams, Link } from 'react-router-dom';
 import logoImage from '../../assets/images/logo.svg';
 import deleteImage from '../../assets/images/delete.svg';
@@ -20,6 +20,9 @@ import './styles.scss';
 import { useToast } from '../../hooks/useToast';
 import { Stats } from '../../components/Stats';
 import { useStateRoom } from '../../hooks/useStateRoom';
+import { Answer } from '../../components/Answer';
+import { delay } from '../../utils/delay';
+import { FiMessageSquare, FiCornerDownRight } from 'react-icons/fi';
 
 type RoomParams = {
   id: string;
@@ -39,6 +42,10 @@ function AdminRoom() {
   const [ typeModal, setTypeModal ] = useState('');
   const { showToast, Toaster } = useToast();
   const state = useStateRoom(roomId);
+  const [ answer, setAnswer ] = useState<string>();
+  const [ showAnswerQuestion, setShowAnswerQuestion ] = useState<string | undefined>();
+  const textareaAnswerRef = useRef<HTMLTextAreaElement>(null);
+  const [ showInputError, setShowInputError ] = useState<boolean>(false);
 
   useEffect(() => {
     if(state) {
@@ -102,6 +109,47 @@ function AdminRoom() {
       });
     }
   }
+
+  async function handleShowAnswerInput(questionId: string, isHighLighted: boolean) {
+    setShowAnswerQuestion((oldState) => (!oldState ? questionId : undefined));
+    setAnswer(undefined);
+
+    if(!isHighLighted) {
+      await delay();
+      textareaAnswerRef.current?.focus();
+    }
+
+    await database.ref(`rooms/${roomId}/questions/${questionId}`).update({
+      isHighLighted: !isHighLighted,
+    });
+  }
+
+  const handleAnswerQuestion = useCallback(
+    async (event: FormEvent, questionId: string) => {
+      event.preventDefault();
+
+      if(!answer || answer.trim() === '') {
+        showToast('⚠️', 'Insira uma pergunta');
+        setShowInputError(true);
+        return;
+      } 
+
+      setShowAnswerQuestion(undefined);
+
+      await database.ref(`rooms/${roomId}/questions/${questionId}/answers`).push({
+        content: answer,
+        author: {
+          avatar: user?.avatar,
+          name: user?.name,
+        },
+      });
+
+      showToast('✅', 'Resposta enviada!');
+
+      await handleCheckQuestionAnswered(questionId);
+    },
+    [handleCheckQuestionAnswered]
+  );
 
   function getAllLikes() {
     const allLikeQuestions = questions.reduce((somaLikes, question) => {
@@ -175,41 +223,82 @@ function AdminRoom() {
           </div>   
           <div className='question-list'>
             { questionsQuantity > 0 ? (
-                questions.map(question => {
-                  return (
-                    <CardQuestion
-                      key={question.id}
-                      content={question.content}
-                      author={question.author}
-                      isAnswered={question.isAnswered}
-                      isHighLighted={question.isHighLighted}
-                      createdAt={question.createdAt}
-                    >
-                      { !question.isAnswered && (
-                        <>
-                          <button
-                            type='button'
-                            onClick={() => handleCheckQuestionAnswered(question.id)}
-                          >
-                            <img src={checkImage} alt='Marcar pergunta como respondida' />
-                          </button>
-                          <button
-                            type='button'
-                            onClick={() => handleHighlightQuestion(question.id)}
-                          >
-                            <img src={answerImage} alt='Dar destaque à pergunta' />
-                          </button>
-                        </>
-                      )}
-                      <button
-                        type='button'
-                        onClick={() => handleDeleteQuestion(question.id)}
+              <div className='question-and-answer-list'>
+                { questions.map((question) => (
+                  <>
+                    <div className='question-container'>
+                      <CardQuestion
+                        key={question.id}
+                        content={question.content}
+                        author={question.author}
+                        isAnswered={question.isAnswered}
+                        isHighLighted={question.isHighLighted}
+                        createdAt={question.createdAt}
                       >
-                        <img src={deleteImage} alt='Remover pergunta' />
-                      </button>
-                    </CardQuestion>
-                  );
-                })
+                        { !question.isAnswered && (
+                          <>
+                            <button
+                              type='button'
+                              onClick={() => handleShowAnswerInput(question.id, question.isHighLighted)}
+                              className='answer-button'
+                            >
+                              <FiMessageSquare size={24} />
+                            </button>
+                            <button
+                              type='button'
+                              onClick={() => handleCheckQuestionAnswered(question.id)}
+                            >
+                              <img src={checkImage} alt='Marcar pergunta como respondida' />
+                            </button>
+                            <button
+                              type='button'
+                              onClick={() => handleHighlightQuestion(question.id)}
+                            >
+                              <img src={answerImage} alt='Dar destaque à pergunta' />
+                            </button>
+                          </>
+                        )}
+                        <button
+                          type='button'
+                          onClick={() => handleDeleteQuestion(question.id)}
+                        >
+                          <img src={deleteImage} alt='Remover pergunta' />
+                        </button>
+                      </CardQuestion>
+                    </div>
+                    { showAnswerQuestion === question.id && (
+                      <form
+                        onSubmit={(event: FormEvent) => handleAnswerQuestion(event, question.id)}
+                        className='answer-container-input'
+                      >
+                        <FiCornerDownRight size={24} color='#e559f9' />
+                        <div>
+                          <textarea 
+                            ref={textareaAnswerRef}
+                            value={answer ?? ''}
+                            onChange={(value) => {
+                              setShowInputError(false);
+                              setAnswer(value.target.value);
+                            }}
+                            style={
+                              showInputError ? { boxShadow: `0 2px 12px rgba(215, 55, 84 ,0.5)` } : {}
+                            }
+                          />
+                          <Button>Responder</Button>
+                        </div>
+                      </form>
+                    )}
+                    { question.answers.map((v) => (
+                      <div 
+                        className='answer-containaer'
+                        key={v.content}  
+                      >
+                        <Answer author={v.author} content={v.content} />
+                      </div>
+                    )) }
+                  </>
+                )) }
+              </div>    
             ) : (
               <div className='wait-question'>
                 <EmptyQuestion />
