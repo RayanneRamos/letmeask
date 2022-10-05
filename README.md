@@ -70,7 +70,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
  - [x] Responsividade
  - [x] Animação do card de perguntas
  - [ ] Testes na aplicação
- - [ ] Permitir respostas do admin
+ - [x] Permitir respostas do admin
  - [x] Adicionar favicon
  - [x] Quando o admin encerrar a sala os usuários são desconectados automaticamente
  - [x] Adicionar o nome e avatar do autor da sala
