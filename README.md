@@ -70,10 +70,9 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
  - [x] Responsividade
  - [x] Animação do card de perguntas
  - [ ] Testes na aplicação
- - [ ] Transições e Animações
  - [ ] Permitir respostas do admin
  - [x] Adicionar favicon
- - [ ] Quando o admin encerrar a sala os usuários são desconectados automaticamente
+ - [x] Quando o admin encerrar a sala os usuários são desconectados automaticamente
  - [x] Adicionar o nome e avatar do autor da sala
  - [x] Adicionar instruções para compartilhar o link da sala
  - [x] Adicionar opção de compartilhar (abre compartilhamento do dispositivo)
@@ -87,7 +86,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
  - [x] Ordenação de comentários por data de envio
  - [x] Redirecionamento forçado de usuários / não usuários quando acessam a página admin sem está autenticado ou não é o proprietário da sala
  - [x] Hooks de badge de identificação das novas perguntas 
- - [ ] Funcionaidade para filtrar as 20 primeiras questões com firebase
+ - [x] Funcionaidade para filtrar as 20 primeiras questões com firebase
  - [ ] Animações na tela inicial e em todos os botões da aplicação com o framer-motion
  - [x] Feedback ao copiar o link do código da sala
  - [x] Deploy
