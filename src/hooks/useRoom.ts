@@ -62,8 +62,7 @@ function useRoom(roomId: string) {
       }
     });
 
-    roomRef   
-      .child('questions')
+    roomRef
       .limitToFirst(20)
       .on('value', room => {
         const databaseRoom = room.val();
@@ -73,7 +72,6 @@ function useRoom(roomId: string) {
           return navigate('/');
         }
 
-        if(databaseRoom !== null) {
           const firebaseQuestions: FirebaseQuestions = databaseRoom.questions ?? {};
           setDataRoom(databaseRoom);
 
@@ -105,9 +103,12 @@ function useRoom(roomId: string) {
           setCheckIsAdmin(dataRoom?.authorId === user?.id ? true : false);
           setAvatar(databaseRoom?.avatar);
           setName(databaseRoom?.name);
-        } else {
-          navigate('/');
-        }
+      });
+
+      roomRef.on('value', room => {
+        const databaseRoom = room.val();
+
+        setTitle(databaseRoom?.title);
       });
 
       return () => {
