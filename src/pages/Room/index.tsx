@@ -1,4 +1,4 @@
-import { FormEvent, useState } from 'react';
+import { FormEvent, useState, useEffect } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import logoImage from '../../assets/images/logo.svg';
 import logoDarkImage from '../../assets/images/logo-dark.svg';
@@ -15,6 +15,7 @@ import '../../components/CardQuestion/styles.scss';
 import { Loading } from '../../components/Loading';
 import { useToast } from '../../hooks/useToast';
 import { Stats } from '../../components/Stats';
+import { useStateRoom } from '../../hooks/useStateRoom';
 
 type RoomParams = {
   id: string;
@@ -32,6 +33,13 @@ function Room() {
   const limitCaracterNewQuestion = 1000;
   const minCaracterNewQuestion = 20;
   const { showToast, Toaster } = useToast();
+  const state = useStateRoom(roomId);
+
+  useEffect(() => {
+    if(state) {
+      navigate('/');
+    }
+  }, [ [], navigate, roomId, state ]);
 
   async function handleSendQuestion(event: FormEvent) {
     event.preventDefault();

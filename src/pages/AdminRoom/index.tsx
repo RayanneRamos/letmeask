@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate, useParams, Link } from 'react-router-dom';
 import logoImage from '../../assets/images/logo.svg';
 import deleteImage from '../../assets/images/delete.svg';
@@ -19,6 +19,7 @@ import { database } from '../../services/firebase';
 import './styles.scss';
 import { useToast } from '../../hooks/useToast';
 import { Stats } from '../../components/Stats';
+import { useStateRoom } from '../../hooks/useStateRoom';
 
 type RoomParams = {
   id: string;
@@ -37,6 +38,13 @@ function AdminRoom() {
   const [ questionIdModal, setQuestionIdModal ] = useState('');
   const [ typeModal, setTypeModal ] = useState('');
   const { showToast, Toaster } = useToast();
+  const state = useStateRoom(roomId);
+
+  useEffect(() => {
+    if(state) {
+      navigate('/');
+    }
+  }, [ navigate, roomId, state ]);
 
   function userIsLogged() {
     if(!user) {
