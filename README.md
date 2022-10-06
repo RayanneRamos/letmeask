@@ -85,6 +85,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
  - [ ] Adicionar integração com a Twitch
  - [x] Ordenação de comentários por data de envio
  - [x] Redirecionamento forçado de usuários / não usuários quando acessam a página admin sem está autenticado ou não é o proprietário da sala
+ - [x] Quando a pergunta tiver likes ficará vísivel para o admin da página
  - [x] Hooks de badge de identificação das novas perguntas 
  - [x] Funcionaidade para filtrar as 20 primeiras questões com firebase
  - [x] Animações na tela inicial e em todos os botões da aplicação com o framer-motion
