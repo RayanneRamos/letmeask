@@ -87,7 +87,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
  - [x] Redirecionamento forçado de usuários / não usuários quando acessam a página admin sem está autenticado ou não é o proprietário da sala
  - [x] Hooks de badge de identificação das novas perguntas 
  - [x] Funcionaidade para filtrar as 20 primeiras questões com firebase
- - [ ] Animações na tela inicial e em todos os botões da aplicação com o framer-motion
+ - [x] Animações na tela inicial e em todos os botões da aplicação com o framer-motion
  - [x] Feedback ao copiar o link do código da sala
  - [x] Deploy
 
