@@ -8,6 +8,8 @@ import { database } from '../../services/firebase';
 import { useTheme } from '../../hooks/useTheme';
 import './styles.scss';
 import { useToast } from '../../hooks/useToast';
+import { motion } from 'framer-motion';
+import { fadeInUp, stagger } from '../../styles/animation';
 
 type RoomTypeProps = {
   roomId: string;
@@ -52,7 +54,14 @@ function RoomList() {
   }
 
   return (
-    <div id='page-room' className={theme}>
+    <motion.div 
+      id='page-room' 
+      className={theme}
+      variants={stagger}
+      initial='initial'
+      animate='animate'
+      exit={{ opacity: 0 }}
+    >
       <header>
         <div className='content'>
           <img src={theme === 'light' ? logoImage : logoDarkImage} alt='Letmeask' onClick={handleGoHomePage} />
@@ -62,7 +71,7 @@ function RoomList() {
         </div>
         <Toaster toastOptions={{ duration: 2100 }} />
       </header>
-      <main className='content'>
+      <motion.main className='content' variants={fadeInUp}>
         <div className='question-list'>
           <div className='room-box-div'>
             { rooms.length !== 0 && isLoading === false ? 
@@ -85,8 +94,8 @@ function RoomList() {
             }       
           </div>
         </div>
-      </main>
-    </div>
+      </motion.main>
+    </motion.div>
   );
 }
 
