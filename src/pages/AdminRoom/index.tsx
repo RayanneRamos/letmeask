@@ -244,10 +244,10 @@ function AdminRoom() {
                         isHighLighted={question.isHighLighted}
                         createdAt={question.createdAt}
                       >
-                        <button type='button' aria-label='likes'>
+                        <motion.button type='button' aria-label='likes' whileTap={{ scale: 1.1 }}>
                           { question.likeCount > 0 && <span>{question.likeCount}</span> }
                           <img src={likeImage} alt='Likes' />
-                        </button>
+                        </motion.button>
                         { !question.isAnswered && (
                           <>
                             <motion.button
@@ -258,7 +258,7 @@ function AdminRoom() {
                                 scale: 1.1,
                               }}
                             >
-                              <FiMessageSquare size={24} />
+                              <FiMessageSquare size={24} color='#737380' opacity='0.7' />
                             </motion.button>
                             <motion.button
                               type='button'
