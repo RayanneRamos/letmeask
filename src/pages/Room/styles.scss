@@ -22,6 +22,14 @@
         }
 
         .form-footer {
+          .login {
+            color: #fff;
+
+            .github {
+              color: #f5f5f5;
+            }
+          }
+
           .user-info {
             span, p {
               color: #a1a1a1;
@@ -152,7 +160,7 @@
         margin-top: 16px;
         gap: 15px;
         flex-wrap: wrap;
-
+        
         .user-info {
           display: flex;
           align-items: center;
@@ -188,6 +196,20 @@
           font-size: 14px;
           color: #737388;
           font-weight: 500;
+
+          .google {
+            color: #ea4335;
+            margin-right: 5px;
+            text-decoration: none;
+            cursor: pointer;
+          }
+
+          .github {
+            color: #333;
+            margin-left: 5px;
+            text-decoration: none;
+            cursor: pointer;
+          }
 
           button {
             background: transparent;
