@@ -13,6 +13,8 @@ import { useTheme } from '../../hooks/useTheme';
 import { database } from '../../services/firebase';
 import '../../styles/auth.scss';
 import { useToast } from '../../hooks/useToast';
+import { motion } from 'framer-motion';
+import { fadeInUp, stagger } from '../../styles/animation';
 
 function Home() {
   const navigate = useNavigate();
@@ -71,11 +73,18 @@ function Home() {
   return (
     <div id='page-auth' className={theme}>
       <aside>
-        <img src={illustrationImage} alt='Ilustração simbolizando perguntas e respostas' />
+        <motion.img 
+          src={illustrationImage} 
+          alt='Ilustração simbolizando perguntas e respostas' 
+          initial={{ x: '-100%', opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.6 }}
+        />
         <strong>Crie salas de Q&amp;A ao-vivo</strong>
         <p>Tire suas dúvidas da sua audiência em tempo-real</p>
       </aside>
-      <main>
+      <motion.main variants={fadeInUp}> 
         <Toaster position='top-right' toastOptions={{ duration: 2000 }} />
         <div className='main-content'>
           <div className='toggle'>
@@ -105,7 +114,7 @@ function Home() {
             <Button onClick={handleGoToRoomList}>Lista de Salas</Button>
           </form>
         </div>
-      </main>
+      </motion.main>
     </div>
   );
 }
