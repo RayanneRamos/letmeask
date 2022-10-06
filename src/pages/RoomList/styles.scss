@@ -11,6 +11,23 @@
     main {
       .question-list {
         .room-box-div {
+          .room-item-div {
+            background: #835afd;
+            color: #fff;
+
+            &:hover {
+              background: #835adf42;
+            }
+          }
+
+          .closed {
+            background: #737380;
+            cursor: not-allowed;
+
+            &:hover {
+              background: #1c1e1f;
+            }
+          }
           .empty-list {
             h1 {
               color: #fff;
@@ -98,7 +115,8 @@
           &:hover {
             background: #737380;
             opacity: 0.9;
-            color: black;
+            color: #fff;
+            cursor: not-allowed;
           }
         }
 
