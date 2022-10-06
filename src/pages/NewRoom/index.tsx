@@ -10,6 +10,8 @@ import { useAuth } from '../../hooks/useAuth';
 import { useTheme } from '../../hooks/useTheme';
 import { useToast } from '../../hooks/useToast';
 import '../../styles/auth.scss';
+import { motion } from 'framer-motion';
+import { fadeInUp, stagger } from '../../styles/animation';
 
 function NewRoom() {
   const { user } = useAuth();
@@ -54,11 +56,18 @@ function NewRoom() {
   return (
     <div id='page-auth' className={theme}>
       <aside>
-        <img src={illustrationImage} alt='Ilustração simbolizando perguntas e respostas' />
+        <motion.img 
+          src={illustrationImage} 
+          alt='Ilustração simbolizando perguntas e respostas' 
+          initial={{ x: '-100%', opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.6 }}
+        />
         <strong>Crie salas de Q&amp;A ao-vivo</strong>
         <p>Tire as dúvidas da sua audiência em tempo-real</p>
       </aside>
-      <main>
+      <motion.main variants={fadeInUp}>
         <Toaster position='top-right' toastOptions={{ duration: 3000 }} />
         <div className='main-content'>
           <div className='toggle'>
@@ -82,7 +91,7 @@ function NewRoom() {
           </form>
           <p>Quer entrar em uma sala existente? <br /> ainda não possui uma conta? <Link to='/'>cliquei aqui</Link></p>
         </div>
-      </main>
+      </motion.main>
     </div>
   );
 }
