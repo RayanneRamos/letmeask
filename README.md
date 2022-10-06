@@ -62,7 +62,6 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
  - [x] Permitir o usuário deslogar na página admin e ao visualizar uma sala aberta
  - [x] Permitindo ordenar perguntas pela quantidade de likes na página da sala
  - [x] Login github
- - [ ] Login com email e senha
  - [x] Modal de ações críticas do sistema
  - [x] PWA
  - [x] Criar a página Lista de Salas
@@ -82,7 +81,6 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
  - [x] Scrool customizado quando ultrapassa altura máxima da question
  - [x] Adicionar limite de 1000 caracteres com contador para novas perguntas (evitar spammers) e receber perguntas mais objetivas
  - [x] Mínimo 20 caracteres com alerta recomendado enviar apenas perguntas
- - [ ] Adicionar integração com a Twitch
  - [x] Ordenação de comentários por data de envio
  - [x] Redirecionamento forçado de usuários / não usuários quando acessam a página admin sem está autenticado ou não é o proprietário da sala
  - [x] Quando a pergunta tiver likes ficará vísivel para o admin da página

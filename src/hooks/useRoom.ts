@@ -66,7 +66,6 @@ function useRoom(roomId: string) {
   const [ checkIsAdmin, setCheckIsAdmin ] = useState(false);
   const { showToast } = useToast();
 
-
   useEffect(() => {
     const roomRef = database.ref(`rooms/${roomId}`);
 
