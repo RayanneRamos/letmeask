@@ -23,6 +23,8 @@ import { useStateRoom } from '../../hooks/useStateRoom';
 import { Answer } from '../../components/Answer';
 import { delay } from '../../utils/delay';
 import { FiMessageSquare, FiCornerDownRight } from 'react-icons/fi';
+import { motion } from 'framer-motion';
+import { fadeInUp, stagger } from '../../styles/animation';
 
 type RoomParams = {
   id: string;
@@ -207,7 +209,7 @@ function AdminRoom() {
           </div>
           <Toaster toastOptions={{ duration: 2100 }} />
         </header>
-        <main>
+        <motion.main variants={fadeInUp}>
           <div className={`room-title ${theme}`}>
             <h1>Sala: {title}</h1>
             { questionsQuantity > 0 && (
@@ -237,39 +239,54 @@ function AdminRoom() {
                       >
                         { !question.isAnswered && (
                           <>
-                            <button
+                            <motion.button
                               type='button'
                               onClick={() => handleShowAnswerInput(question.id, question.isHighLighted)}
                               className='answer-button'
+                              whileTap={{
+                                scale: 1.1,
+                              }}
                             >
                               <FiMessageSquare size={24} />
-                            </button>
-                            <button
+                            </motion.button>
+                            <motion.button
                               type='button'
                               onClick={() => handleCheckQuestionAnswered(question.id)}
+                              whileTap={{
+                                scale: 1.1,
+                              }}
                             >
                               <img src={checkImage} alt='Marcar pergunta como respondida' />
-                            </button>
-                            <button
+                            </motion.button>
+                            <motion.button
                               type='button'
                               onClick={() => handleHighlightQuestion(question.id)}
+                              whileTap={{
+                                scale: 1.1,
+                              }}
                             >
                               <img src={answerImage} alt='Dar destaque à pergunta' />
-                            </button>
+                            </motion.button>
                           </>
                         )}
-                        <button
+                        <motion.button
                           type='button'
                           onClick={() => handleDeleteQuestion(question.id)}
+                          whileTap={{
+                            scale: 1.1,
+                          }}
                         >
                           <img src={deleteImage} alt='Remover pergunta' />
-                        </button>
+                        </motion.button>
                       </CardQuestion>
                     </div>
                     { showAnswerQuestion === question.id && (
-                      <form
+                      <motion.form
                         onSubmit={(event: FormEvent) => handleAnswerQuestion(event, question.id)}
                         className='answer-container-input'
+                        initial={{ scale: 0 }}
+                        animate={{ scale: 1 }}
+                        transition={{ duration: 0.4 }}
                       >
                         <FiCornerDownRight size={24} color='#e559f9' />
                         <div>
@@ -286,15 +303,18 @@ function AdminRoom() {
                           />
                           <Button>Responder</Button>
                         </div>
-                      </form>
+                      </motion.form>
                     )}
                     { question.answers.map((v) => (
-                      <div 
+                      <motion.div 
                         className='answer-containaer'
                         key={v.content}  
+                        initial={{ scale: 0 }}
+                        animate={{ scale: 1 }}
+                        transition={{ duration: 0.4 }}
                       >
                         <Answer author={v.author} content={v.content} />
-                      </div>
+                      </motion.div>
                     )) }
                   </>
                 )) }
@@ -305,7 +325,7 @@ function AdminRoom() {
               </div>
             )}
           </div>
-        </main>
+        </motion.main>
       </div>
     </>
   );
