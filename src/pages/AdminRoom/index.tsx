@@ -25,11 +25,11 @@ import { delay } from '../../utils/delay';
 import { FiMessageSquare, FiCornerDownRight } from 'react-icons/fi';
 import { motion } from 'framer-motion';
 import { fadeInUp, stagger } from '../../styles/animation';
+import likeImage from '../../assets/images/like.svg';
 
 type RoomParams = {
   id: string;
 }
-
 
 function AdminRoom() {
   const navigate = useNavigate();
@@ -244,6 +244,10 @@ function AdminRoom() {
                         isHighLighted={question.isHighLighted}
                         createdAt={question.createdAt}
                       >
+                        <button type='button' aria-label='likes'>
+                          { question.likeCount > 0 && <span>{question.likeCount}</span> }
+                          <img src={likeImage} alt='Likes' />
+                        </button>
                         { !question.isAnswered && (
                           <>
                             <motion.button
