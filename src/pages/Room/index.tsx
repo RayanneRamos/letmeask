@@ -29,7 +29,7 @@ function Room() {
   const params = useParams<RoomParams>();
   const roomId = params.id as string;
   const [ newQuestion, setNewQuestion ] = useState('');
-  const { user, signInWithGoogle, signOut } = useAuth();
+  const { user, signInWithGoogle, signOut, signInWithGithub } = useAuth();
   const { title, questions, dataRoom } = useRoom(roomId);
   const { theme } = useTheme();
   const navigate = useNavigate();
@@ -139,6 +139,12 @@ function Room() {
     }
   }
 
+  async function handleUserLoginGithub() {
+    if(!user) {
+      await signInWithGithub();
+    }
+  }
+
   async function handleLogOut() {
     if(user) {
       await signOut();
@@ -195,10 +201,14 @@ function Room() {
             />
             <div className='form-footer'>
               { !user ? (
-                <span>
-                  Para enviar uma pergunta, { "" }
-                  <Button className='link' onClick={handleUserLoginGoogle}>
-                    Faça seu login
+                <span className='login'>
+                  Para enviar uma pergunta, faça seu login com o { "" }
+                  <Button className='link google' onClick={handleUserLoginGoogle}>
+                    Google
+                  </Button>
+                  ou
+                  <Button className='link github' onClick={handleUserLoginGithub}>
+                    Github
                   </Button>
                 </span>
               ) : (
