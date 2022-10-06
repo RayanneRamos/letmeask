@@ -318,12 +318,13 @@ function AdminRoom() {
                     )}
                     { question.answers.map((v) => (
                       <motion.div 
-                        className='answer-containaer'
+                        className='answer-container'
                         key={v.content}  
                         initial={{ scale: 0 }}
                         animate={{ scale: 1 }}
                         transition={{ duration: 0.4 }}
                       >
+                        <FiCornerDownRight size={24} color='#e559f9' />
                         <Answer author={v.author} content={v.content} />
                       </motion.div>
                     )) }
