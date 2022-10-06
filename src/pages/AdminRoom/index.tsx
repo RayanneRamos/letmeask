@@ -189,7 +189,14 @@ function AdminRoom() {
           type={typeModal}
         />
       ) }
-      <div id='page-admin' className={theme}>
+      <motion.div 
+        id='page-admin' 
+        className={theme}
+        variants={stagger}
+        initial='initial'
+        animate='animate'
+        exit={{ opacity: 0 }}
+      >
         <header className={theme}>
           <div className='content'>
             <Link to='/'><img src={theme === 'light' ? logoImage : logoDarkImage} alt='Letmeask' /></Link>
@@ -326,7 +333,7 @@ function AdminRoom() {
             )}
           </div>
         </motion.main>
-      </div>
+      </motion.div>
     </>
   );
 }

@@ -54,7 +54,14 @@ function NewRoom() {
   }
 
   return (
-    <div id='page-auth' className={theme}>
+    <motion.div 
+      id='page-auth' 
+      className={theme}
+      variants={stagger}
+      initial='initial'
+      animate='animate'
+      exit={{ opacity: 0 }}
+    >
       <aside>
         <motion.img 
           src={illustrationImage} 
@@ -92,7 +99,7 @@ function NewRoom() {
           <p>Quer entrar em uma sala existente? <br /> ainda não possui uma conta? <Link to='/'>cliquei aqui</Link></p>
         </div>
       </motion.main>
-    </div>
+    </motion.div>
   );
 }
 

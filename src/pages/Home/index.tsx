@@ -71,7 +71,14 @@ function Home() {
   }
 
   return (
-    <div id='page-auth' className={theme}>
+    <motion.div 
+      id='page-auth' 
+      className={theme}
+      variants={stagger}
+      initial='initial'
+      animate='animate'
+      exit={{ opacity: 0 }}
+    >
       <aside>
         <motion.img 
           src={illustrationImage} 
@@ -115,7 +122,7 @@ function Home() {
           </form>
         </div>
       </motion.main>
-    </div>
+    </motion.div>
   );
 }
 
