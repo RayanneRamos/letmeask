@@ -14,9 +14,13 @@
       form {
         input {
           background: #181a1b;
-          border-color: #424242;
+          border-color: #835afd;
           color: #fff;
         }
+      }
+
+      ::-webkit-input-placeholder {
+        color: #fff;
       }
 
       p {
@@ -24,6 +28,10 @@
       }
 
       h2 {
+        color: #fff;
+      }
+
+      .separator {
         color: #fff;
       }
     }
@@ -189,6 +197,7 @@
 @media screen and (max-width: 960px) {
   #page-auth {
     flex-direction: column;
+    height: auto;
 
     aside {
       flex: 1;
@@ -219,6 +228,9 @@
 
 @media screen and (max-width: 520px) {
   #page-auth {
+    flex-direction: column;
+    height: auto;
+    
     aside {
       padding: 20px 10px;
 
@@ -240,6 +252,7 @@
 
 @media screen and (max-width: 320px) {
   #page-auth {
+    flex-direction: column;
     height: auto;
 
     aside {
