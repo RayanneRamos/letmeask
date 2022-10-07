@@ -41,3 +41,21 @@
   }
 }
 
+.dark {
+  .container {
+    background: #29292e;
+    border: 1px solid #835afd;
+  }
+
+  p {
+    color: #fff;
+  }
+
+  footer {
+    .user-info {
+      span {
+        color: #fff;
+      }
+    }
+  }
+}
