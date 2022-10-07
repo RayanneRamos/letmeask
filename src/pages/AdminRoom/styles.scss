@@ -21,6 +21,7 @@
       align-items: center;
 
       @media screen and (max-width: 414px) {
+        flex-direction: column;
         flex-wrap: wrap;
       }
 
@@ -29,6 +30,7 @@
       }
 
       @media screen and (max-width: 320px) {
+        flex-direction: column;
         flex-wrap: wrap;
       }
 
