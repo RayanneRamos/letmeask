@@ -59,12 +59,12 @@ function Room() {
     }
 
     if(!user) {
-      showToast('⚠️', 'You must be logged in');
+      showToast('⚠️', 'Você deve estar logado.');
       return;
     }
 
     if(newQuestion.trim().length < minCaracterNewQuestion) {
-      showToast('⚠️', 'Por favor enviar apenas perguntas. Mínimo 20 caracteres');
+      showToast('⚠️', 'Por favor enviar apenas perguntas. Mínimo 20 caracteres.');
       return;
     }
 
