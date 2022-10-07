@@ -15,14 +15,14 @@
     font-weight: 600;
     font-family: 'Poppins', sans-serif;
     font-size: 1.125rem;
-    color: #29292e;
+    color: var(--text-color-primary);
   }
 
   .link {
     font-size: medium;
     background: none;
     text-decoration: none;
-    color: #835afd;
+    color: var(--color-primary);
 
     &:hover {
       text-decoration: underline;
@@ -41,22 +41,22 @@
     margin-bottom: 20px;
     border: 0;
     border-bottom: 1 solid #d7d7d7;
-    border-top: 1px solid #fff;
+    border-top: 1px solid var(--text-white);
   }
 }
 
 .dark {
   .empty-question {
     p {
-      color: #fff;
+      color: var(--text-white);
     }
 
     span {
-      color: #fff;
+      color: var(--text-white);
     }
 
     h3 {
-      color: #fff;
+      color: var(--text-white);
     }
   }
 }

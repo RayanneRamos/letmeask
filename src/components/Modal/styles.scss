@@ -27,7 +27,7 @@
     }
 
     h3 {
-      color: #29292e;
+      color: var(--text-color-primary);
       font-size: 1.5rem;
       font-family: 'Poppins', sans-serif;
       font-weight: bold;
@@ -35,7 +35,7 @@
     }
 
     span {
-      color: #737380;
+      color: var(--text-color-secondary);
       font-size: 1rem;
       font-family: 'Roboto', sans-serif;
       margin-top: 12px;

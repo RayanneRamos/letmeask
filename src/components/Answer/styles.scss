@@ -1,6 +1,6 @@
 .container {
   background-color: #fefefe;
-  box-shadow: 0 2px 12px rgba(111, 75, 216, 0.5);
+  box-shadow: 0 2px 12px var(--box-shadow);
   border-radius: 8px;
   padding: 24px;
   flex: 1,
@@ -34,7 +34,7 @@
 
       span {
         margin-left: 8px;
-        color: #7e7e86;
+        color: var(--text-color-secondary);
         font-size: 0.8125rem;
       }
     }
@@ -43,18 +43,18 @@
 
 .dark {
   .container {
-    background: #29292e;
-    border: 1px solid #835afd;
+    background: var(--text-color-primary);
+    border: 1px solid var(--color-primar);
   }
 
   p {
-    color: #fff;
+    color: var(--text-white);
   }
 
   footer {
     .user-info {
       span {
-        color: #fff;
+        color: var(--text-white);
       }
     }
   }

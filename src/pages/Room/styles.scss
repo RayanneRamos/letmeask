@@ -11,7 +11,7 @@
     main {
       .room-title {
         h1 {
-          color: #fff;
+          color: var(--text-white);
         }
       }
 
@@ -19,16 +19,16 @@
         textarea {
           background: #191b1c;
           color: #cacaca;
-          border: 1px solid #835afd;
+          border: 1px solid var(--color-primary);
         }
 
         ::-webkit-input-placeholder {
-          color: #fff;
+          color: var(--text-white);
         }
 
         .form-footer {
           .login {
-            color: #fff;
+            color: var(--text-white);
 
             .github {
               color: #fafafa;
@@ -38,16 +38,16 @@
 
           .user-info {
             span, p {
-              color: #fff;
+              color: var(--text-white);
             }
 
             .logout {
               background-color: transparent;
-              color: #fff;
+              color: var(--text-white);
             }
 
             .limit {
-              color: #fff;
+              color: var(--text-white);
             }
           }
         }
@@ -117,7 +117,7 @@
           height: 65px;
           width: 65px;
           border-radius: 8px;
-          background-color: #fff;
+          background-color: var(--text-white);
         }
 
         p {
@@ -128,15 +128,15 @@
       h1 {
         font-family: 'Poppins',  sans-serif;
         font-size: 1.5rem;
-        color: #29292e;
+        color: var(--text-color-primary);
       }
 
       span {
         margin-left: 16px;
-        background: #e559f9;
+        background: var(--color-secondary);
         border-radius: 9999px;
         padding: 8px 16px;
-        color: #fff;
+        color: var(--text-white);
         font-weight: 500;
         font-size: 0.875rem;
         text-align: center;
@@ -159,7 +159,7 @@
         min-height: 138px;
 
         &:focus {
-          outline: 1px solid #835afd;
+          outline: 1px solid var(--color-primary);
         }
       }
 
@@ -184,7 +184,7 @@
 
           span, p {
             margin-left: 20px;
-            color: #29292e;
+            color: var(--text-color-primary);
             font-weight: 500;
             font-size: 0.875rem;
           }
@@ -204,7 +204,7 @@
 
         > span {
           font-size: 0.875rem;
-          color: #737388;
+          color: var(--text-color-secondary);
           font-weight: 500;
 
           .google {
@@ -224,7 +224,7 @@
           button {
             background: transparent;
             border: 0;
-            color: #835afd;
+            color: var(--color-primary);
             text-decoration: underline;
             font-size: 0.875rem;
             font-weight: 500;
@@ -263,7 +263,7 @@
             padding: 16px;
             border-radius: 8px;
             background-color: #fefefe;
-            color: #29292e;
+            color: var(--text-color-primary);
             box-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
             border: none;
             resize: vertical;
@@ -272,7 +272,7 @@
             transition: all 0.4s;
 
             &:focus {
-              box-shadow: 0 2px 12px rgba(111, 75, 216, 0.5);
+              box-shadow: 0 2px 12px var(--box-shadow);
             }
           }
 

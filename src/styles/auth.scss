@@ -14,33 +14,33 @@
       form {
         input {
           background: #181a1b;
-          border-color: #835afd;
-          color: #fff;
+          border-color: var(--color-primary);
+          color: var(--text-white);
         }
       }
 
       ::-webkit-input-placeholder {
-        color: #fff;
+        color: var(--text-white);
       }
 
       p {
-        color: #fff;
+        color: var(--text-white);
       }
 
       h2 {
-        color: #fff;
+        color: var(--text-white);
       }
 
       .separator {
-        color: #fff;
+        color: var(--text-white);
       }
     }
   }
 
   aside {
     flex: 7;
-    background: #835afd;
-    color: #fff;
+    background: var(--color-primary);
+    color: var(--text-white);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -108,7 +108,7 @@
         height: 50px;
         border-radius: 0px;
         padding: 0 16px;
-        background: #fff;
+        background: var(--text-white);
         border: 1px solid #a8a8a8;
       }
 
@@ -123,11 +123,11 @@
 
     p {
       font-size: 0.875rem;
-      color: #737388;
+      color: var(--text-color-secondary);
       margin-top: 16px;
 
       a {
-        color: #e559f9;
+        color: var(--color-secondary);
       }
     }
   }
@@ -138,7 +138,7 @@
     border-radius: 8px;
     font-weight: 500;
     background-color: #ea4335;
-    color: #fff;
+    color: var(--text-white);
     display: flex;
     justify-content: center;
     align-items: center;

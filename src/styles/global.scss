@@ -25,3 +25,16 @@ body, input, button, textarea {
 ::-webkit-scrollbar-thumb {
   background: #835afd;
 }
+
+:root {
+  --color-primary: #835afd;
+  --color-secondary: #e559f9;
+  --color-tertiary: #e73f5d;
+
+  --text-white: #fff;
+  --text-black: #000;
+  --text-color-primary: #29292e;
+  --text-color-secondary: #737380;
+
+  --box-shadow: rgba(111, 75, 216, 0.5);
+}
