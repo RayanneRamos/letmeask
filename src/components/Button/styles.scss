@@ -55,21 +55,23 @@
 .dark {
   .outlined {
     background: #181a1b;
-    color: #8259fd;
-    border-color: #270296;
+    color: #fff;
+    border-color: #835afd;
+    transition: all 0.8s;
 
     &:hover {
+      background: #835afd;
       filter: brightness(1.1);
     }
   }
 
   .logout {
-    background-color: #2c2f31;
-    border-color: #3a3f41;
-    color: #9b9386;
+    background-color: #181a1b;
+    border-color: #835afd;
+    color: #fff;
 
     &:hover {
-      background: #3d4144;
+      background: #835afd;
     }
   }
 }
