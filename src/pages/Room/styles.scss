@@ -121,13 +121,13 @@
         }
 
         p {
-          font-size: 13px;
+          font-size: 0.8125rem;
         }
       }
 
       h1 {
         font-family: 'Poppins',  sans-serif;
-        font-size: 24px;
+        font-size: 1.5rem;
         color: #29292e;
       }
 
@@ -138,7 +138,7 @@
         padding: 8px 16px;
         color: #fff;
         font-weight: 500;
-        font-size: 14px;
+        font-size: 0.875rem;
         text-align: center;
       }
     }
@@ -186,7 +186,7 @@
             margin-left: 20px;
             color: #29292e;
             font-weight: 500;
-            font-size: 14px;
+            font-size: 0.875rem;
           }
 
           .logout {
@@ -195,7 +195,7 @@
 
             > span {
               color: red;
-              font-size: 14px;
+              font-size: 0.875rem;
               font-weight: normal;
               cursor: pointer;
             }
@@ -203,7 +203,7 @@
         }
 
         > span {
-          font-size: 14px;
+          font-size: 0.875rem;
           color: #737388;
           font-weight: 500;
 
@@ -226,7 +226,7 @@
             border: 0;
             color: #835afd;
             text-decoration: underline;
-            font-size: 14px;
+            font-size: 0.875rem;
             font-weight: 500;
             cursor: pointer;
           }

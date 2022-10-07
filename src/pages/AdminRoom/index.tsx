@@ -263,6 +263,7 @@ function AdminRoom() {
                             <motion.button
                               type='button'
                               onClick={() => handleCheckQuestionAnswered(question.id)}
+                              className='question-button'
                               whileTap={{
                                 scale: 1.1,
                               }}
@@ -272,6 +273,7 @@ function AdminRoom() {
                             <motion.button
                               type='button'
                               onClick={() => handleHighlightQuestion(question.id)}
+                              className='highlighted-button'
                               whileTap={{
                                 scale: 1.1,
                               }}
@@ -283,6 +285,7 @@ function AdminRoom() {
                         <motion.button
                           type='button'
                           onClick={() => handleDeleteQuestion(question.id)}
+                          className='delete-button'
                           whileTap={{
                             scale: 1.1,
                           }}
