@@ -115,12 +115,22 @@
       background: #1c1f20;
     }
 
+    button {
+      &.like-button {
+        color: #fff;
+  
+        svg path {
+          stroke: #fff;
+        }
+      }
+    }
+
     p {
-      color: #cacaca;
+      color: #fff;
     }
 
     footer .user-info span {
-      color: #cacaca;
+      color: #fff;
     }
   }
 }
