@@ -7,6 +7,18 @@
     header {
       border-bottom: 1px solid #4d4d4d;
     }
+
+    main {
+      .question-list {
+        .answer-container-input {
+          textarea {
+            border: 1px solid #835afd;
+            color: #fff;
+            background: #1c1e1f;
+          }
+        }
+      }
+    }
   }
 
   header {
