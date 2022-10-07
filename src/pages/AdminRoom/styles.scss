@@ -240,10 +240,10 @@
     }
 
     .question-and-answer-list {
-      margin-top: 3rem;
+      margin-top: 48px;
 
       .question-container {
-        margin-top: 2.5rem;
+        margin-top: 40px;
       }
 
       .answer-container-input {
@@ -251,10 +251,10 @@
         display: flex;
         align-items: center;
         gap: 1rem;
-        margin: 0.5rem 0 3rem 0;
+        margin: 8px 0 48px 0;
 
         svg {
-          margin-top: -3.5rem;
+          margin-top: -56px;
         }
 
         div {
@@ -265,14 +265,14 @@
 
           textarea {
             width: 100%;
-            padding: 1rem;
-            border-radius: 0.5rem;
+            padding: 16px;
+            border-radius: 8px;
             background-color: #fefefe;
             color: #29292e;
             box-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
             border: none;
             resize: vertical;
-            min-height: 8.1rem;
+            min-height: 129.6px;
             outline: none;
             transform: all 0.4s;
 
@@ -282,8 +282,8 @@
           }
 
           button {
-            width: 10rem;
-            margin-top: 1rem;
+            width: 160px;
+            margin-top: 16px;
           }
         }
       }
@@ -292,11 +292,11 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: 1rem;
-        margin: 0.5rem 0;
+        gap: 16px;
+        margin: 8px 0;
 
         svg {
-          margin-top: -3.5rem;
+          margin-top: -56px;
         }
 
         & + & {
