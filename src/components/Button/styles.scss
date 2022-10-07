@@ -10,7 +10,7 @@
   align-items: center;
   cursor: pointer;
   border: 0;
-  transition: filter 0.2s;
+  transition: all 0.4s;
 
   img {
     margin-right: 8px;
@@ -20,6 +20,11 @@
     background: #fff;
     border: 1px solid #835afd;
     color: #835afd;
+
+    &:hover {
+      color: #fff;
+      background: #835afd;
+    }
   }
 
   &.danger {
@@ -33,12 +38,13 @@
   }
 
   &.logout {
-    background: #dcdcdd;
-    border: 1px solid #dbdcdd;
-    color: #737380;
+    background: #fff;
+    border: 1px solid #e559f9;
+    color: #835afd;
 
     &:hover {
-      background: #cecece;
+      color: #fff;
+      background: #e559f9;
     }
   }
 
@@ -57,7 +63,7 @@
     background: #181a1b;
     color: #fff;
     border-color: #835afd;
-    transition: all 0.8s;
+    transition: all 0.4s;
 
     &:hover {
       background: #835afd;
