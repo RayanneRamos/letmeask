@@ -55,6 +55,7 @@
   },
   "devDependencies": {
     "@types/react-modal": "^3.13.1",
-    "node-sass": "^7.0.1"
+    "node-sass": "^7.0.1",
+    "prettier": "2.7.1"
   }
 }
