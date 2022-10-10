@@ -72,8 +72,8 @@ function Room() {
       content: newQuestion,
       author: {
         id: user?.id,
-        name: user.name,
-        avatar: user.avatar,
+        name: user?.name,
+        avatar: user?.avatar,
       },
       isHighLighted: false,
       isAnswered: false,
@@ -135,12 +135,14 @@ function Room() {
 
   async function handleUserLoginGoogle() {
     if(!user) {
+      showToast('💻', 'Abrirá a janela de autenticação do Google.');
       await signInWithGoogle();
     }
   }
 
   async function handleUserLoginGithub() {
     if(!user) {
+      showToast('💻', 'Abrirá a janela de autenticação do Github.');
       await signInWithGithub();
     }
   }
