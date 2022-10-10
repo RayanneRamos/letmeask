@@ -1,6 +1,6 @@
 import copyImage from '../../assets/images/copy.svg';
-import './styles.scss';
 import { useToast } from '../../hooks/useToast';
+import './styles.scss';
 
 type RoomCodeProps = {
   code: string;

@@ -1,19 +1,19 @@
 import { FormEvent, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import illustrationImage from '../../assets/images/illustration.svg';
 import logoImage from '../../assets/images/logo.svg';
 import googleIconImage from '../../assets/images/google-icon.svg';
 import logoDarkImage from '../../assets/images/logo-dark.svg';
 import githubIconImage from '../../assets/images/github-icon.png';
 import loginImage from '../../assets/images/login.svg';
-import { Button } from '../../components/Button';
-import { Toggle } from '../../components/Toggle';
+import { database } from '../../services/firebase';
 import { useAuth } from '../../hooks/useAuth';
 import { useTheme } from '../../hooks/useTheme';
-import { database } from '../../services/firebase';
-import '../../styles/auth.scss';
 import { useToast } from '../../hooks/useToast';
-import { motion } from 'framer-motion';
+import { Button } from '../../components/Button';
+import { Toggle } from '../../components/Toggle';
+import '../../styles/auth.scss';
 import { fadeInUp, stagger } from '../../styles/animation';
 
 function Home() {

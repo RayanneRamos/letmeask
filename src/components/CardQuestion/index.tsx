@@ -1,8 +1,8 @@
 import { ReactNode } from 'react';
 import cx from 'classnames';
 import { useTheme } from '../../hooks/useTheme';
-import './styles.scss';
 import { BadgeNewQuestion } from '../BadgeNewQuestion';
+import './styles.scss';
 
 type QuestionProps = {
   content: string;

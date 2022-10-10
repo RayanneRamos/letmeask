@@ -1,7 +1,6 @@
 import moment from 'moment';
 import { useEffect, useState } from 'react';
 import { useInterval } from '../../hooks/useInterval';
-
 import './styles.scss';
 
 type BadgeNewQuestionProps = {

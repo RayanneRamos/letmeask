@@ -1,6 +1,4 @@
 import './styles.scss';
-import { Button } from '../Button';
-import { FormEvent, forwardRef, Ref } from 'react';
 
 type AnswerProps = {
   content: string;

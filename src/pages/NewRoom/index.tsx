@@ -1,16 +1,16 @@
 import { FormEvent, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import illustrationImage from '../../assets/images/illustration.svg';
 import logoImage from '../../assets/images/logo.svg';
 import logoDarkImage from '../../assets/images/logo-dark.svg';
-import { Button } from '../../components/Button';
-import { Toggle } from '../../components/Toggle';
-import { database } from '../../services/firebase';
 import { useAuth } from '../../hooks/useAuth';
 import { useTheme } from '../../hooks/useTheme';
 import { useToast } from '../../hooks/useToast';
+import { database } from '../../services/firebase';
+import { Button } from '../../components/Button';
+import { Toggle } from '../../components/Toggle';
 import '../../styles/auth.scss';
-import { motion } from 'framer-motion';
 import { fadeInUp, stagger } from '../../styles/animation';
 
 function NewRoom() {

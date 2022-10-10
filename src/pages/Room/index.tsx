@@ -1,24 +1,24 @@
 import { FormEvent, useState, useEffect } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import { FiCornerDownRight } from 'react-icons/fi';
 import logoImage from '../../assets/images/logo.svg';
 import logoDarkImage from '../../assets/images/logo-dark.svg';
+import { database } from '../../services/firebase';
+import { useAuth } from '../../hooks/useAuth';
+import { useRoom } from '../../hooks/useRoom';
+import { useTheme } from '../../hooks/useTheme';
+import { useToast } from '../../hooks/useToast';
+import { useStateRoom } from '../../hooks/useStateRoom';
 import { Button } from '../../components/Button';
 import { CardQuestion } from '../../components/CardQuestion';
 import { RoomCode } from '../../components/RoomCode';
 import { Toggle } from '../../components/Toggle';
-import { useAuth } from '../../hooks/useAuth';
-import { database } from '../../services/firebase';
-import { useRoom } from '../../hooks/useRoom';
-import { useTheme } from '../../hooks/useTheme';
+import { Loading } from '../../components/Loading';
+import { Stats } from '../../components/Stats';
+import { Answer } from '../../components/Answer';
 import './styles.scss';
 import '../../components/CardQuestion/styles.scss';
-import { Loading } from '../../components/Loading';
-import { useToast } from '../../hooks/useToast';
-import { Stats } from '../../components/Stats';
-import { useStateRoom } from '../../hooks/useStateRoom';
-import { FiCornerDownRight } from 'react-icons/fi';
-import { Answer } from '../../components/Answer';
-import { motion } from 'framer-motion';
 import { fadeInUp, stagger } from '../../styles/animation';
 
 type RoomParams = {

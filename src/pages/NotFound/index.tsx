@@ -1,10 +1,10 @@
 import { useNavigate } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import logoImage from '../../assets/images/logo.svg';
 import logoDarkImage from '../../assets/images/logo-dark.svg';
-import { Button } from '../../components/Button';
 import { useTheme } from '../../hooks/useTheme';
+import { Button } from '../../components/Button';
 import './styles.scss';
-import { motion } from 'framer-motion';
 import { fadeInUp, stagger } from '../../styles/animation';
 
 function NotFound() {

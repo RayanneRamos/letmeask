@@ -1,6 +1,6 @@
 import emptyImage from '../../assets/images/empty-questions.svg';
-import { Loading } from '../Loading';
 import { useTheme } from '../../hooks/useTheme';
+import { Loading } from '../Loading';
 import './styles.scss';
 
 function EmptyQuestion() {

@@ -1,14 +1,14 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import logoImage from '../../assets/images/logo.svg';
 import logoDarkImage from '../../assets/images/logo-dark.svg';
 import emptyRoomImage from '../../assets/images/empty-room.svg';
-import { Toggle } from '../../components/Toggle';
 import { database } from '../../services/firebase';
 import { useTheme } from '../../hooks/useTheme';
-import './styles.scss';
 import { useToast } from '../../hooks/useToast';
-import { motion } from 'framer-motion';
+import { Toggle } from '../../components/Toggle';
+import './styles.scss';
 import { fadeInUp, stagger } from '../../styles/animation';
 
 type RoomTypeProps = {

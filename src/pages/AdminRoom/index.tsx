@@ -1,31 +1,32 @@
 import { useState, useEffect, useRef, FormEvent, Fragment, useCallback } from 'react';
 import { useNavigate, useParams, Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import { FiMessageSquare, FiCornerDownRight } from 'react-icons/fi';
 import logoImage from '../../assets/images/logo.svg';
 import deleteImage from '../../assets/images/delete.svg';
 import checkImage from '../../assets/images/check.svg';
 import answerImage from '../../assets/images/answer.svg';
 import logoDarkImage from '../../assets/images/logo-dark.svg';
+import likeImage from '../../assets/images/like.svg';
+import { useRoom } from '../../hooks/useRoom';
+import { useTheme } from '../../hooks/useTheme';
+import { useAuth } from '../../hooks/useAuth';
+import { useToast } from '../../hooks/useToast';
+import { useStateRoom } from '../../hooks/useStateRoom';
+import { delay } from '../../utils/delay';
 import { Button } from '../../components/Button';
 import { CardQuestion } from '../../components/CardQuestion';
 import { RoomCode } from '../../components/RoomCode';
 import { Toggle } from '../../components/Toggle';
 import { Modal } from '../../components/Modal';
 import { EmptyQuestion } from '../../components/EmptyQuestion';
-import '../../components/CardQuestion/styles.scss';
-import { useRoom } from '../../hooks/useRoom';
-import { useTheme } from '../../hooks/useTheme';
-import { useAuth } from '../../hooks/useAuth';
-import { database } from '../../services/firebase';
-import './styles.scss';
-import { useToast } from '../../hooks/useToast';
 import { Stats } from '../../components/Stats';
-import { useStateRoom } from '../../hooks/useStateRoom';
 import { Answer } from '../../components/Answer';
-import { delay } from '../../utils/delay';
-import { FiMessageSquare, FiCornerDownRight } from 'react-icons/fi';
-import { motion } from 'framer-motion';
+import { database } from '../../services/firebase';
+import '../../components/CardQuestion/styles.scss';
+import './styles.scss';
 import { fadeInUp, stagger } from '../../styles/animation';
-import likeImage from '../../assets/images/like.svg';
+
 
 type RoomParams = {
   id: string;

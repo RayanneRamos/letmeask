@@ -1,12 +1,13 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { AuthContextProvider } from './context/AuthContext';
 import { AdminRoom } from './pages/AdminRoom';
 import { Home } from './pages/Home';
 import { NewRoom } from './pages/NewRoom';
 import { Room } from './pages/Room';
 import { NotFound } from './pages/NotFound';
 import { RoomList } from './pages/RoomList';
-import { AuthContextProvider } from './context/AuthContext';
+
 
 function App() {
   return (
