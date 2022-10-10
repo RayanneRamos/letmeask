@@ -55,6 +55,10 @@
   },
   "devDependencies": {
     "@types/react-modal": "^3.13.1",
+    "@typescript-eslint/eslint-plugin": "^5.40.0",
+    "@typescript-eslint/parser": "^5.40.0",
+    "eslint": "^8.25.0",
+    "eslint-plugin-react": "^7.31.9",
     "node-sass": "^7.0.1",
     "prettier": "2.7.1"
   }
