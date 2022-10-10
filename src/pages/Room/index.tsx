@@ -1,4 +1,4 @@
-import { FormEvent, useState, useEffect } from 'react';
+import React, { FormEvent, useState, useEffect } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { FiCornerDownRight } from 'react-icons/fi';

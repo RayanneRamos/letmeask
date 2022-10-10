@@ -9,5 +9,5 @@ export type RoomParams = {
 export type RoomListProps = {
   roomId: string;
   title: string;
-  roomIsOpen?: Boolean;
+  roomIsOpen?: boolean;
 }

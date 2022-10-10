@@ -1,4 +1,4 @@
-import { FormEvent, useState } from 'react';
+import React, { FormEvent, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import illustrationImage from '../../assets/images/illustration.svg';
@@ -47,7 +47,7 @@ function Home() {
       return;
     }
 
-    let roomCodeClean = roomCode.replace(window.location.href + 'rooms/', '');
+    const roomCodeClean = roomCode.replace(window.location.href + 'rooms/', '');
     setRoomCode(roomCodeClean);
 
     const roomRef = await database.ref(`rooms/${roomCode}`).get();

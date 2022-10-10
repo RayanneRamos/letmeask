@@ -1,3 +1,4 @@
+import React from 'react';
 import copyImage from '../../assets/images/copy.svg';
 import { useToast } from '../../hooks/useToast';
 import './styles.scss';

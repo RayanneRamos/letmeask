@@ -1,8 +1,9 @@
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import closedImage from '../../assets/images/close.svg';
 import deleteModalImage from '../../assets/images/delete-modal.svg';
-import { database } from '../../services/firebase';
 import { Button } from '../Button';
+import { database } from '../../services/firebase';
 import './styles.scss'; 
 
 type ModalProps = {

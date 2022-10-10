@@ -1,14 +1,15 @@
+import React from 'react';
 import './styles.scss';
 
 function Loading() {
-  return (
-    <div className='loading'>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-  );
+	return (
+		<div className='loading'>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
+	);
 }
 
 export { Loading };
